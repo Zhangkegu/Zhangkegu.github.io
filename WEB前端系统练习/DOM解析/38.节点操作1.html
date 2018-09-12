@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DOM解析</title>
+</head>
+<body>
+     <!--Dom解析是针对于XML结构（树形结构）的一种操作解析方式，其中HTML标签本身就是XML结构的衍生品；
+         父节点：标签的上一级称之为父节点，每个节点只有一个父节点；
+         子节点：父级标签的下一级标签称之为子节点，子节点可以有多个；
+         节点操作：增删改查
+     -->
+<!--节点获得-->
+     <div id="wrap">
+         <div>1</div>
+     </div>
+     <div id="first"></div>
+</body>
+<script>
+    //1，getElementById();
+    //2,getElementsByTagName();
+    //3，querySelector();通过css的方式来获得一个标签；
+    //4，querySelectorAll();得到的是一个数组，是类似的多个标签；
+
+
+    //调用上面的四个函数一般是通过父级标签调用；例如调用#wrap标签里的div标签，就要先获得父级标签#wrap然后再从#wrap里查找标签名div,
+    //时获得的就是第一个div里的子级div
+    var wrap=document.querySelector('#wrap');
+    var div1=document.getElementsByTagName('div');
+    var a=Number(div1.innerHTML);
+    alert(a);
+
+
+
+    /*var div1=document.getElementById('wrap');
+    var divs1=document.getElementsByTagName('div');
+    var div2=document.querySelector('#wrap');
+    console.log(div2);
+    var divs2=document.querySelectorAll('div');//获得一类的多个标签；
+    console.log(divs2);*/
+
+
+</script>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //1,创建日期是用new Date();方法获;
+    // 得系统的当前时间，是根据格林尼治时间划分的；
+
+    /*var date=new Date();//括号里什么都不写表示获取系统的当前时间；
+    alert(date);*/
+
+    //2，创建日期：从1970年开始往上加1000毫秒得到的日期；
+
+    /*var date=new Date(60000);
+    alert(date);*/
+
+    //3.创建日期：月份是0-11月，计算机所识别的月份是从0开始的；
+
+    /*var date=new Date(2018,9,3,7,20,30);//括号里的参数是创建的你自己设置的日期，从第一个往后分别代表：年，月，日，时，分，秒；
+    // 最少要写两个参数，否则只写一个参数就变成了多少毫秒的那个1970年开始加的日期了；
+    alert(date);*/
+
+    //获得年用：getFullYear();
+   /* var date=new Date(2019,2,8,19,20,49);
+    var year1=date.getFullYear();//获得设置时间里的年；
+    alert(year1);
+
+    //获得月份用：日期.getMonth();
+    var month=date.getMonth();//获得设定时间里的月份；
+    alert(month);
+    //获得星期用：日期.getDay();
+    var day1=date.getDay();
+    alert(day1);
+    //获得小时用：日期.getHours();
+    var hour=date.getHours();
+    alert(hour);
+    //获得分钟用：日期.getMinutes();
+    var min=date.getMinutes();
+    alert(min);
+    //获得秒用：日期.getSeconds();
+    var seconds=date.getSeconds();
+    alert(seconds);
+    */
+
+    //时间戳：通过date.getTime（）；方法来实现时间戳；比较常用；
+    // 从1970年开始到现在为止的时间的毫秒数；通常作为前端和服务器之间时间的比较；
+   /* var date=new Date(2018,2,9,19,8,9);
+    var time=date.getTime();//从1970年开始到date所代表的时间为止的时间毫秒数；通常作为前端和服务器之间时间的比较；
+    alert(time);*/
+
+
+
+
+    //1，设置日期；setFullYear();
+    /*var date=new Date();
+    date.setFullYear(2020);//把上述获得的系统当前时间中的年份设置成立2020年；
+    alert(date);*/
+
+    //2，将敌方时间转换成字符串形式；
+    /*var date=new Date();
+    alert(date);
+    var str=date.toLocaleString();//这样做能将时间变得更加人性化，更易一目了然；
+    alert(str);
+    var str1=date.toString();//没有和获得的系统当前时间显示方式有什么不同，有待研究；     ？？？？
+    alert(str1);*/
+
+
+
+</script>
+</html>

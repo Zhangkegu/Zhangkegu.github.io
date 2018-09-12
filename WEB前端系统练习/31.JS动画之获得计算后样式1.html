@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #wrap{
+            width: 200px;
+            height: 200px;
+            background-color: cadetblue;
+            position: absolute;
+            left: 50px;
+/*修改left或者top值就能让它进行移动*/
+        }
+    </style>
+</head>
+<body>
+      <div id="wrap"  >
+          0
+      </div>
+</body>
+<script>
+    //获得当前标签的left和top值；
+
+    /*var wrap=document.querySelector("#wrap");
+    //1,通过行间样式获得：如下（注意：想要获得行间样式首先要有行间样式，
+    // 在头部的style标签里的样式是内部样式不是行间样式）
+    var left1=wrap.style.left;
+
+    alert(left1);//可以看到输出的left1是100px,而不是头部样式中的50px;
+    var realLeft=left1.replace("px","");//将100px中的“px”用空字符替换掉；
+    alert(realLeft);//输出结果是100；
+    alert(typeof realLeft);//此时得到的100仍然是字符串类型；
+    realLeft=Number(realLeft);
+    alert(typeof realLeft);//此时输出的100就是数字类型的数据了；*/
+
+
+
+    //2,获得计算后样式：这种方法既可以获得内联样式还可以获得行间样式；
+    /*var style=getComputedStyle(wrap);//获得全部内联样式，即头部里面的样式
+
+    console.log(style);
+    var left=style.left;//获得样式中的left值；
+    alert(left);
+ // 注意：这种方法只针对现代浏览器，在Ie678浏览器中生效；解决此问题可以写一个功能函数将它封装在里面就好了；
+
+    function getCss(obj,name){//name代表样式名；wrap是上面锁定的标签名，不能当能全局变量来写要写成形参传进去；
+        if(obj.currentStyle){//表示wrap.里面的样式是否存在；
+            return obj.currentStyle[name];//name就是style里的属性名；
+
+        }else{
+            return getComputedStyle(obj)[name];
+        }
+    }
+    var value=getCss(wrap,'left');//把标签名wrap 穿进去，在wrap里面查‘left'属性的值；
+    */
+
+
+    //当要定义一个新的属性，属性名和上一个属性里的值相同，则不能直接把下一个属性名写成上一个属性里的值的名；应该
+    //用中括号把这个属性值对应的属性名括起来，表示获得这个属性里的值，例如：
+    /*var wrap=document.querySelector("#wrap");
+      wrap.sex="女";//自定义属性前面不用在家var关键字；
+      wrap.blood=100;
+
+      var str='left';
+      //wrap.left="大招";//这种写法不对，用为left是上一个属性str变量 中的值，
+      //不能再定义成一个属性名；写法应该如下行：
+      wrap[str]="大招";//这就表示获取属性str变量中的left值作为当下这个属性的属性名
+     console.log(wrap);//里面会有一个变量名为Left的属性，值为“大招”；
+     //这个效果能在火狐浏览器的控制台里查看到样式里的left属性，值为“大招”；
+     */
+
+   //如果属性名是变量，用中括号来括起来这个属性名来获取变量当中的值
+</script>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+        #box1,#box2 {
+            width:400px;
+            height:300px;
+            border:1px solid #845913;
+            border-radius: 20px;
+            position: relative;
+            margin:10px auto;
+            overflow: hidden;
+        }
+        #box1 img,#box2 img {
+            width:100%;
+            height:100%;
+        }
+        #box1 a,#box2 a {
+            width: 50px;
+            height:50px;
+            border:1px solid #fff;
+            text-align: center;
+            font:25px/50px "simhei";
+            position: absolute;
+            top:50%;
+            margin-top: -25px;
+            color: #fff;
+            border-radius: 10px;
+        }
+        #box1 a:nth-of-type(1),#box2 a:nth-of-type(1){
+            left:15px;
+        }
+        #box1 a:nth-of-type(2),#box2 a:nth-of-type(2){
+            right:15px;
+        }#box1 ul,#box2 ul {
+             width:110px;
+             position: absolute;
+             top:90%;
+             left:50%;
+             margin-left: -55px;
+         }
+        #box1 li,#box2 li {
+            width:15px;
+            height:15px;
+            border-radius: 50%;
+            border:1px solid #fff;
+            background: #ccc;
+            float:left;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        #box1 .active,#box2 .active{
+            background: red;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oDiv1 = document.getElementById('box1');
+            var oDiv2 = document.getElementById('box2');
+            var arr1=['image/6.jpg','image/7.jpg','image/8.jpg','image/4.jpg','image/5.jpg'];
+            var arr2=['image1/1.jpg','image1/2.jpg','image1/3.jpg','image1/4.jpg','image1/5.jpg'];
+            fn1(oDiv1,arr1);
+            fn1(oDiv2,arr2);
+
+            function fn1( obj,arr ){
+                var oImg = obj.getElementsByTagName('img')[0];
+                var aBtn = obj.getElementsByTagName('a');
+                var aLi = obj.getElementsByTagName('li');
+
+                var num = 0;
+
+                aBtn[0].onclick = function(){
+                    num -- ;
+                    if( num == -1 ){
+                        num = arr.length - 1;
+                    }
+                    fnTab();
+                };
+                aBtn[1].onclick = function(){
+                    num ++ ;
+                    if( num == arr.length ){
+                        num = 0;
+                    }
+                    fnTab();
+                };
+
+                for(var i=0; i<aLi.length; i++){
+                    aLi[i].index = i;
+                    aLi[i].onclick = function(){
+                        num = this.index;
+                        fnTab();
+                    };
+                }
+                function fnTab(){
+                    oImg.src = arr[num];
+                    for(var i=0; i<aLi.length; i++){
+                        aLi[i].className = ''
+                    }
+                    aLi[num].className = 'active';
+                };
+            }
+
+        };
+    </script>
+</head>
+<body>
+<div id="box1">
+    <img src="image/6.jpg" alt="">
+    <a href="#"> < </a>
+    <a href="#"> > </a>
+    <ul>
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<div id="box2">
+    <img src="image1/1.jpg" alt="">
+    <a href="#"> < </a>
+    <a href="#"> > </a>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>

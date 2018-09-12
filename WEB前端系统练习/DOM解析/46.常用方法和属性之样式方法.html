@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #wrap{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            margin-left: 50px;
+            padding: 50px;
+
+        }
+    </style>
+</head>
+<body>
+      <div id="wrap"></div>
+</body>
+<script>
+    //1,offsetLeft,offsetHeight,offsetWidth,offsetTop;
+    //2,clientWidth,clientHeight,scrollHeight,scrollWidth,scrollLeft,scrollTop
+
+    //1,offsetLeft和offsetTop是不包含margin 的,但包含边框宽度；
+    //2，offsetWidth和offsetHeight是不包含margin的但包含边框宽度；
+    //3，clientWidth和clientHeight是不包含边框和margin的；
+    //以上三个属性都包含padding；
+
+    var wrap=document.querySelector('#wrap');
+    console.log(wrap.offsetHeight);
+    console.log(wrap.clientHeight);
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #ul1{
+
+        }
+        #ul1 li {
+
+        }
+    </style>
+</head>
+<body>
+<ul id="ul1">
+
+    <!-- <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li> -->
+
+</ul>
+<ol>
+    <li>6</li>
+    <li>7</li>
+</ol>
+</body>
+</html>
+<script>
+    /*
+     getElementById 是获取一个  静态方法
+     getElementsByTagName 是获取一坨元素 动态方法
+     会把元素放到数组里，通过数组下标来控制元素 ，即使只有一个元素，也需要加下标控制
+
+     var oUl = document.getElementById('ul1');
+     var aLi = oUl.getElementsByTagName('li');
+
+     相当于css中 #ul1 li
+
+     */
+    var oUl = document.getElementById('ul1');//通过Id获取的元素是一个特定的元素，可以通过innerH来操作他的页面内容，而BYTagName获取的元素是同一类元素变签名，有很多个，尽管只有一个也会被放在一个数组里，不能通过innerH来操作他；
+    var aLi = oUl.getElementsByTagName('li');
+
+    for(var i=0; i<15; i++){
+        oUl.innerHTML += '<li>'+ (i+1)+'</li>';//给元素动态添加标签
+    }
+    alert(aLi.length);
+
+</script>

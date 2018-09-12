@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>留言板</title>
+    <style>
+        #wrap{
+            width: 800px;
+            height: 800px;
+            border:1px solid gold;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+      <div id="wrap">
+          <p>姓名：<input type="text" id="txt" value=""/></p>
+          <p>内容：<textarea name="content" id="content" cols="30" rows="10"></textarea></p>
+          <p><input type="button" id="btn" value="提交"/> </p>
+          <p>显示留言</p>
+          <input type="text" id="who" value="" disabled="disabled"/>
+          <div id="show"></div>
+
+
+      </div>
+
+</body>
+</html>

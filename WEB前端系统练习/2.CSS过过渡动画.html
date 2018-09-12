@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>过渡</title>
+    <style>
+        body{
+            height: 300px;
+            width: 300px;
+            border: 1px dashed yellow;
+			margin:0 auto;
+        }
+       div{
+            height: 30px;
+            width: 30px;
+            background-color: red;
+            margin: 10px 10px;
+            transition:3s ;
+
+        }
+        body:hover div{
+            margin:150px 90px;
+            border-radius: 99%;
+			width:60px;
+			height:90px;
+            background-color: yellowgreen;
+        }<!--想让谁作为触发物就放在hover 前面，想让谁变化在hover之后就写谁的标签-->
+
+    </style>
+</head>
+<body>
+
+          <div></div>
+
+</body>
+</html>

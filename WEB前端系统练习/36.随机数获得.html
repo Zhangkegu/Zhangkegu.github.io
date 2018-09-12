@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>随机数</title>
+</head>
+<body>
+<script>
+    //随机数的范围是0~1；用函数Math.random();来获得；
+
+    var value=Math.random();
+    console.log(value);
+
+    //如果想要获得0-10的随机数，写法如下：
+    var num=Math.random()*10;
+    console.log(num);
+    num=parseInt(num);//将小数转换成整数,parsInt只会取出小数的整数部分保留下来，小数部分不进行四舍五入全部舍掉；
+    console.log(num);
+
+    //如果想要获得0-9的数值，写法如下：
+    var num1=Math.random()*9+1;
+    console.log(num1);
+
+    //如果想要获得20-30之间的数值，写法如下：
+    //var num2=Math.random()*10+20;
+
+   // var num2=Math.random()*(最大值-最小值)+最小值；
+
+    //封装在函数中：
+    function random(min,max){
+        return parseInt(Math.random()*(max-min)+min);
+    }
+    var num2=random(20,30);
+    alert(num2);
+</script>
+</body>
+</html>

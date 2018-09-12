@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input{
+            display: block;
+            width: 200px;
+            height: 30px;
+            box-shadow: 2px 2px 3px gray;
+            margin: 2px auto;
+            text-align: center;
+            border-radius: 20px 20px 20px 20px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+<input type="button"value="这是一个数字啦" id="btn1"/><br/>
+<input type="button" value="这里是句大实话" id="btn2"/><br/>
+<input type="button" value="点我有惊喜函数哦" id="btn3"/><br/>
+<script>
+    var oBtn1=document.getElementById('btn1');
+    var oBtn2=document.getElementById('btn2');
+    var oBtn3=document.getElementById('btn3');
+    function fn1(a){//命名函数fn1（）；并定义形参为a一个值，然后定义了函数的功能；在调用函数fn1（）时候，必须给其括号中填入实参才能成功调用；
+        if(typeof (a)=="number"){
+            alert(a*100);
+        }else{
+            if(typeof (a)=='string'){
+                alert('即便是在'+a+'张刻骨也是小仙女！');
+            }else{
+                if(typeof (a)=="function"){
+                    a();
+                }
+            }
+        }
+    };
+
+
+    oBtn1.onclick=function (){
+            fn1(10);//命名函数的调用，可以在脚本里的任何地方进行填入实参的调用，但是如果不通过事件调用的方式，你将不能控制它，会在
+        //浏览器打开时自动显示出所有调用函数的内容。
+    };
+   oBtn2.onclick=function(){
+       fn1('全宇宙');
+   }
+
+    oBtn3.onclick=function() {
+        fn1(function () {
+            alert("敢点我？嗯哼！你被行刑啦！");
+        });
+    }
+
+
+</script>
+
+</body>
+</html>

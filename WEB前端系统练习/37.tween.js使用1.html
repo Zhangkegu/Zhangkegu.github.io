@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>用Tween做一个淘宝大图滚动</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <style>
+        #wrap{
+            width: 100px;
+            height: 100px;
+            border:1px solid green;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+     <div id="wrap"></div>
+
+</body>
+<script src="css/tween.js" charset="utf-8"></script>
+<script>
+    var wrap=document.querySelector('#wrap');
+    move();
+    function move(){
+        //tween.js中有四个形参，t,b,c,d 代表含义如下
+        //t:初始时间
+        //b:初始值；
+        //c：改变值：（结束值-初始值）
+        //d:结束时间（持续时间）；
+
+        var t=0;
+        var b=wrap.offsetLeft;
+        var c=1000-b;
+        var d=1000;
+        var speed=10;//每次t增加多少，直到增加到1000为止；
+        var timer=setInterval(function () {
+            t+=speed;//1000除以30会一直除下去，应该有下面的if判断才能停止计时器；
+            if(t>=d){
+                clearInterval(timer);
+            }
+            //wrap.style.left=Tween.Linear(t,b,c,d)+'px';
+            //wrap.style.left=Tween.Quad.easeIn(t,b,c,d)+'px';//先慢后快；
+            wrap.style.left=Tween.Bounce.easeOut(t,b,c,d)+'px';//结束时弹跳；
+        },10);
+
+    }
+</script>
+</html>

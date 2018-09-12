@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/reset.css"/>
+    <title></title>
+    <style>
+        #box1,#box2{
+            width: 300px;
+            height: 300px;
+            border:1px solid;
+            border-radius: 30px;
+            position: relative;
+            margin: 10px auto;
+            overflow: hidden;
+        }
+		#box1 img,#box2 img{
+            width: 100%;
+            height: 100%;
+        }
+        #box1 a,#box2 a{
+			display:block;
+            width: 40px;
+            height: 20px;
+            border: 1px solid green;
+            border-radius: 10px;
+            position: absolute;
+            background-color: antiquewhite;
+            text-align: center;
+            line-height: 18px;
+            font-weight: bolder;
+			font-size:10px;
+        }
+        #box1 a:nth-of-type(1), #box2 a:nth-of-type(1){
+            margin-top: 150px;
+            margin-left: 0px;
+        }
+        #box1 a:nth-of-type(2), #box2 a:nth-of-type(2){
+            margin-top: 150px;
+            margin-left:257px;
+        }
+        #box1 ul,#box2 ul{
+            width: 100px;
+            height: 30px;
+            margin:270px 99px 0px 99px;
+            position: absolute;
+        }
+        #box1 li,#box2 li{
+            width: 16px;
+            height: 16px;
+            border:1px solid gray;
+            border-radius: 20px;
+            float: left;
+            margin: 1px;
+            background-color: #cccccc;
+        }
+		#box1 .active,#box2 .active{
+			background-color:red;
+		}
+
+       
+    </style>
+    
+    
+    <script>
+           /*window.onload=function(){
+		          var oDiv=document.getElementById('box1');
+				  var arr1=['image/1.jpg','image/6.jpg','image/3.jpg','image/4.jpg','image/5.jpg'];
+
+                  var oImg=oDiv.getElementsByTagName('img')[0];
+                  var aBtn=oDiv.getElementsByTagName('a');
+                  var aLi=oDiv.getElementsByTagName('li');
+                  var num=0;
+				  aBtn[0].onclick= function () {
+					  num--;
+					  if(num==-1){
+						  num=arr1.length-1;
+					  }
+					  
+                      oImg.src=arr1[num];
+					  for(var i=0;i<aLi.length;i++){
+						  aLi[i].className="";
+					  }
+					  aLi[num].className='active';
+					  
+                  };
+                  aBtn[1].onclick= function () {
+					  num++;
+					  if(num==arr1.length){
+						  num=0;
+					  }
+					  this.index=num;
+                      oImg.src=arr1[num];
+					  for(var i=0;i<aLi.length;i++){
+						  aLi[i].className="";
+					  }
+					  aLi[num].className='active';
+				  };
+				  
+				  for(var i=0;i<aLi.length;i++){
+					  aLi[i].index=i;
+					  aLi[i].onclick=function(){
+						  num=this.index;//为了避免aLi被点击时的点击对象和上面的aBtn被点击时的点击对象不能正确切换，所以将上面的num值赋值给下面的aLi点击的自定义属性，以保证两者点击后的图片切换正确；
+						  oImg.src=arr1[this.index];
+						  for(var i=0;i<aLi.length;i++){
+						  aLi[i].className="";
+					  }
+					  aLi[this.index].className='active';
+						  };
+				 }
+				  
+				  温馨提示：这里面的是单独一个box1时的函数代码；当有两个或者更多个相同的盒子内容时，需要用命名函数传参的方式更为简洁精确；代码如下面；
+				  
+		   
+		   
+		   }*/
+		   /*命名函数传参代码*/
+		   window.onload=function(){
+		          var oDiv1=document.getElementById('box1');
+				  var oDiv2=document.getElementById('box2');
+				  var arr1=['image/1.jpg','image/6.jpg','image/3.jpg','image/4.jpg','image/5.jpg'];
+				  var arr2=['image1/1.jpg','image1/6.jpg','image1/3.jpg','image1/4.jpg','image1/5.jpg'];
+                  fn1(oDiv1,arr1);
+				  fn1(oDiv2,arr2);
+
+
+				  function  fn1(obj,arr){
+                  var oImg=obj.getElementsByTagName('img')[0];
+                  var aBtn=obj.getElementsByTagName('a');
+                  var aLi=obj.getElementsByTagName('li');
+                  var num=0;
+				  aBtn[0].onclick= function () {
+					  num--;
+					  if(num==-1){
+						  num=arr.length-1;
+					  }
+                      
+					  fnTab();
+					  
+                  };
+                  aBtn[1].onclick= function () {
+					  num++;
+					  if(num==arr.length){
+						  num=0;
+					  }
+					  fnTab();
+				  };
+				  
+				   for(var i=0;i<aLi.length;i++){
+					  aLi[i].index=i;
+					  aLi[i].onclick=function(){
+						  num=this.index;
+						  fnTab();
+					  };
+				   }
+				  function fnTab(){
+					       oImg.src=arr[num];
+				           for(var i=0;i<aLi.length;i++){
+						     aLi[i].className="";
+					  }
+					  aLi[num].className='active';
+				  
+				  };
+				  }
+				  
+				  
+				  };
+    </script>
+</head>
+<body>
+     <div id="box1">
+         <a href="#">上一张</a><!--a标签里的href一定要写内容，没有连接就写“#”代表当前页的空连接，什么也不写会导致浏览器端的跳转错误-->
+         <a href="#">下一张</a>
+         <ul>
+             <li class="active"></li>
+             <li></li>
+             <li></li>
+             <li></li>
+             <li></li>
+         </ul>
+         <img src="image/1.jpg" alt=""/>
+
+     </div>
+     <div id="box2">
+         <a href="#">上一张</a>
+         <a href="#">下一张</a>
+         <ul>
+             <li></li>
+             <li></li>
+             <li></li>
+             <li></li>
+             <li></li>
+         </ul>
+         <img src="image1/1.jpg" alt=""/>
+
+     </div>
+
+</body>
+
+</html>

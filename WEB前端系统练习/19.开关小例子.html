@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/reset.css"/>
+    <title></title>
+    <style>
+        #top{
+            width: 70px;
+            height: 30px;
+            border: 0.1px solid;
+            margin: 1px auto;
+        }
+        #box{
+            width:72px;
+            height: 121px;
+            margin: 1px auto;
+        }
+        ul{
+            display: none;
+        }
+        li{
+            width: 70px;
+            height: 30px;
+            border: 0.1px solid;
+            margin: 1px auto;
+            text-align: center;
+        }
+        a:hover{
+            font-weight: bolder;
+            color: blue;
+        }
+        a:active{
+           font-size: 15px;
+            box-shadow: 2px -2px 3px pink;
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+   <div id="top"><span>设置</span></div>
+   <div id="box">
+       <ul>
+           <li><a href="#">高级设置</a></li>
+           <li><a href="#">搜索设置</a></li>
+           <li><a href="#">检索标签</a></li>
+           <li><a href="#">历史浏览</a></li>
+       </ul>
+   </div>
+   <script>
+       window.onload=function(){
+           var oDiv=document.getElementById('top');
+           var aUl=document.getElementsByTagName('ul')[0];
+           var onOff=true;
+               oDiv.onclick= function () {
+                   if(onOff==true){
+                       aUl.style.display="block";
+                       onOff=false;
+                   }else{
+                       aUl.style.display="none";
+                       onOff=true;
+                   }
+               }
+       }
+   </script>
+</body>
+</html>

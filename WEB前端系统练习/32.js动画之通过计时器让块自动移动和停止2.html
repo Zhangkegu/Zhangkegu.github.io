@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="css/getCss.js"></script>
+    <style>
+        #wrap{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50px;
+            box-shadow: 5px 5px 6px pink,-5px -5px 6px pink;
+        }
+        #btn{
+            width: 40px;
+            height: 30px;
+            text-align: center;
+            background-color: burlywood;
+            border-radius: 20px;
+            margin: 90px 50px;
+        }
+
+    </style>
+</head>
+<body>
+  <div id="wrap"></div>
+  <br/>
+  <input type="button" id="btn" value="走起"/>
+</body>
+<script>
+    var wrap=document.querySelector("#wrap");
+    var btn=document.querySelector('#btn');
+    var endValue=400;//定义一个结束点的值
+    //让它移动要有起始点，结束点，和移动时间；
+    btn.onclick= function () {
+       var left=getCss(wrap,'left');
+        left=left.replace('px','');//因为这里面用到的left 的值虽然去掉“px”以后的100还是字符串，
+        // 但是在计时器当中，只有数字的字符串也可以进行正常的加加减减；
+        var timer=setInterval(function(){
+            left++;
+            wrap.style.left=left+'px';
+            if(left>=400){
+                clearInterval(timer);
+            }
+        },10)
+
+    };
+    //计时器效率很低，能通过CSS动画搞定的就不要计时器搞效果；
+</script>
+</html>

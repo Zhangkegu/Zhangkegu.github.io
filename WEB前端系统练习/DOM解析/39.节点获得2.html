@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>节点操作</title>
+</head>
+<body>
+     <div id="wrap">
+         <div id="first"></div>
+         <p></p>
+         <ul>
+             <li></li>
+         </ul>
+     </div>
+     <div id="dad">
+         你好
+     </div>
+
+</body>
+<script>
+   /* var wrap=document.querySelector('#wrap');
+    //获得当前节点的所有子节点
+    var children=wrap.childNodes;
+    console.log(children);
+    //childNodes获得的节点中，文本内容也属于子节点，空格也是文本内容；
+    //children:获得的节点中，包含了节点，不包含文本内容；
+    var dad=document.querySelector('#dad');
+    var son=dad.childNodes;
+    console.log(son);*/
+  /* var wrap=document.querySelector('#wrap');
+    var children=wrap.children;
+    console.log(children);
+
+    //获得标签的首个子节点；获得的首个节点是文本节点；
+    var first=wrap.firstChild;
+    console.log(first);
+
+
+    var first1=wrap.firstElementChild;//通过first Element Child获得的才是真正的标签形式的节点；
+    console.log(first1);*/
+
+
+    //注意：获得子节点分为两种：
+    // 1，将文本内容也当成节点之一；firstNodes  firstChild  lastChild；
+    //2，获得以标签为内容的子节点：children  firstElementChild   lastElementChild；
+
+
+
+
+    //获得当前节点的一些内容：nodeName:获得当前节点的名称；
+   /*var wrap=document.querySelector('#wrap');
+    var value=wrap.nodeName;
+    console.log(value);*/
+
+    //获得当前节点的父节点
+   var wrap=document.querySelector('#wrap');
+    var obj=wrap.parentNode;//得到的是wrap 的父级标签body 的全部结构；
+    console.log(obj);
+
+</script>
+</html>

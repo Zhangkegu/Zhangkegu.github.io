@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>秒表计时原理</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <style>
+        #dad{
+            width: 150px;
+            height: 155px;
+            border: 1px solid;
+            margin: 20px auto;
+            border-radius: 30px;
+            box-shadow: 3px 4px 5px gray;
+            background-color: cadetblue;
+        }
+        #box{
+            width: 100px;
+            height:80px;
+            background-color: green;
+            text-align: center;
+            line-height: 80px;
+            font-wight: bolder;
+            font-size: 40px;
+            margin: 12px auto;
+            border-radius: 50px;
+        }
+        #btn{
+            display: block;
+            margin: 0px 16px ;
+            background-color: peachpuff;
+            border-radius: 20px;
+            float: left;
+
+        }
+        #btn1{
+            display: block;
+            margin: 0px 16px;
+            background-color: peachpuff;
+            border-radius: 20px;
+            float: left;
+
+                 }
+        .note{
+            margin: 0px auto;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+   <div id="dad">
+       <p class="note">秒表计时</p>
+
+       <div id="box">
+           <p>0</p>
+       </div>
+       <input type="button" id="btn" value="停止"/>
+       <input type="button" id="btn1" value="计时"/>
+   </div>
+
+</body>
+
+<script>
+    /*var timer=setTimeout(function(){alert("第5秒啦！");},4000);
+    //也就是让计时器过四秒后停止；用setTimeOut();方法*/
+
+    var oDiv=document.querySelector("#box");//当使用querySelector();作为指定选择器关键词时括号里必须用#选择器名称；
+    var btn=document.querySelector("#btn");
+    var btn1=document.querySelector("#btn1");
+     btn1.onclick = function () {
+        var i=0;
+        var timer=setInterval(function () {
+            i++;
+            oDiv.innerHTML=i;
+        },1000);
+       btn.onclick=function(){
+           clearInterval(timer);
+       }
+    }
+
+</script>
+</html>

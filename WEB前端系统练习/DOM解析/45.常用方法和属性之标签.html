@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/reset.css"/>
+</head>
+<body>
+      <div id="wrap" class="a" style="background-color: aquamarine"></div>
+      <img src="image1/6.jpg" alt="美丽"/>
+      <input type="text" id="txt" value="文本框"/>
+</body>
+<script>
+    //对于标签而言，只要是系统提供的一些属性，我们都可以通过点（.）来获得并进行设置；
+    //标签的可视化属性：
+    var wrap=document.querySelector('#wrap');
+    console.log(wrap.id);
+    console.log(wrap.className);
+    console.log(wrap.style);
+    var img=document.querySelector('img');
+    img.alt='美女';
+    img.src='image1/7.jpg';//进行设置赋值
+    console.log(img.src);
+    console.log(img.alt);
+    var input=document.querySelector('input');
+    input.type='button';//重新设置input 属性使其变成按钮；
+    input.id='btn';
+    input.value="按钮";
+    console.log(input.id);
+
+    //如何给标签添加一些额外的自定义可视属性？如下：setAttribute（）；
+    wrap.setAttribute('hello','属性值');
+    var a=wrap.getAttribute('hello');//如何获得自定义的属性值个体Attribute（）:
+    // 定义一个变量a ，使其获得wrap中的属性；
+    //getAttribute()还可以获得系统自带属性：id type class style等等；
+    var b=wrap.getAttribute('id');
+    console.log(a);
+    console.log(b);
+    //删除属性用removeAttribute();
+    wrap.removeAttribute('hello');
+    console.log(wrap);
+
+    //把自定义属性加进系统自带属性中，再标签里不可视，但可以直接用获得系统属性的方法直接获得属性；
+    wrap.name='我是自定义的，标签中不可视的加进系统属性中的属性哦，在火狐控制台中可以找到'
+
+
+</script>
+</html>

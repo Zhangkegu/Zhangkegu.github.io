@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>淘宝多个商品界面练习</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <style>
+        body{
+            width: 100%;
+        }
+        .a{
+            width: 21%;
+            height: 220px;
+            border: 1px solid red;
+            margin: 2px;
+            float: left;
+        }
+        img{
+            width: 100%;
+            height: 80%;
+        }
+        p{
+            display: inline-block;
+            background-color: gold;
+            margin-top:-5px;
+            margin-bottom: 0px;
+            font-size: 0.1%;
+            font-weight: bolder;
+            line-height:1em;
+            color:red;
+            height:21%;
+            width: 100%;
+
+
+        }
+        a{
+            width: 100%;
+            height: 80%;
+            font-family: 隶书;
+            font-size: 0.1%;
+            display: block;
+            line-height: 1em;
+            color: green;
+            text-align: center;
+            padding: 2px;
+        }
+        a:hover{
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+
+</body>
+<script>
+    var wrap=document.querySelector('#wrap');
+    createEle(8);
+    function createEle(num){
+        for(var i=0;i<num;i++) {
+            var div = document.createElement('div');
+            div.className = 'a';
+            wrap.appendChild(div);//把创建好的div块都放在wrap标签中；
+            //再在div下方添加文本信息；
+
+            //向创建的div中添加图片并设置属性：
+
+            var img = document.createElement('img');
+            img.src = 'image1/6.jpg';
+            div.appendChild(img);
+
+            var p = document.createElement('p');
+            p.innerHTML = '100元<br/>';
+            div.appendChild(p);
+            var a = document.createElement('a');
+            a.href = '#';
+            a.innerHTML = '青年女学生气质简约时尚雪纺纯色减龄可爱系唯美吊带上衣';
+            p.appendChild(a);
+        }
+    }
+</script>
+</html>

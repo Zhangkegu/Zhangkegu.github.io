@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>isNaN:是用来判断一个Number类型的数据是否为NaN的</title>
+</head>
+<body>
+     <inPut type="text" value=""/>
+     <p>请在上面输入框中填入数据，点击按钮判断是否为数字数据类型</p>
+     <input type="button" value="判断"/>
+</body>
+<script>
+    var oBtn=document.getElementsByTagName('input');
+    var str="";
+    oBtn[1].onclick= function () {
+        str=oBtn[0].value;
+        if(str==""){
+            alert("大哥，你啥也没输入");
+        }else{
+            if(isNaN(str)){
+                alert("他不是数字，是NaN");
+            }else{
+                alert("他是数字，"+str);
+            }
+        }
+    }
+</script>
+</html>

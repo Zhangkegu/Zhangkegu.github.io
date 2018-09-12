@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #box{
+            width: 300px;
+            height: 100px;
+            background-color:antiquewhite;
+            margin-left:1px ;
+            text-align: center;
+            color: salmon;
+            font-size: 30px;
+            font-family:楷体;
+            line-height: 100px;
+            box-shadow: 1px 1px  gray;
+            transition: 3s;
+            transform-origin: left;
+        }
+        input{
+            margin: 5px;
+            width: 60px;
+            height: 30px;
+            border-radius:30%;
+            background-color: yellowgreen;
+        }
+        p{
+            font-size: 10px;
+            font-weight: bolder;
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+      <div id="box">我会四种变化</div>
+      <input  id="btn1" type="button" value="加长"/>
+      <input  id="btn2" type="button" value="变高"/>
+      <input  id="btn3" type="button" value="放大"/>
+      <input  id="btn4" type="button" value="右移200px"/>
+        <hr/>
+        <p>温馨提示：按钮点击顺序是从左到右点击的小可爱才没有瑕疵哦~</p>
+
+</body>
+<script>
+    var oDiv=document.getElementById("box");
+    var btn1=document.getElementById("btn1");
+    var btn2=document.getElementById("btn2");
+    var btn3=document.getElementById("btn3");
+    var btn4=document.getElementById("btn4");
+
+    btn1.onclick=function(){
+        oDiv.style.width="500px";
+    };
+    btn2.onclick=function(){
+        oDiv.style.height="500px";
+    };
+
+    btn3.onclick=function(){
+        oDiv.style.width="600px";
+        oDiv.style.height="590px";
+    };
+    btn4.onclick=function(){
+        oDiv.style.marginLeft="500px";
+    };
+</script>
+</html>

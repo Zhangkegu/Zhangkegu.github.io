@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/reset.css">
+    <style>
+
+        #box{
+            width:500px;
+            margin: 10px auto;
+        }
+        ul{
+            overflow: hidden;
+        }
+        li{
+            width:80px;
+            height: 60px;
+            border: 3px solid pink;
+            box-shadow: 1px 1px 3px purple;
+            border-radius: 9px 40% 0 0 ;
+            float: left;
+            margin:0px  4px 0px 0px;
+            line-height: 60px;
+            color:olivedrab;
+            font-size: 30px;
+            text-align: center;
+        }
+        p{
+            display:none;
+            height: 500px;
+            background-size:100% 100% ;
+            border: 4px solid gold;
+            border-radius: 2%;
+            margin-top: -10px;
+            box-shadow: 3px 4px 3px pink;
+            margin:0px 0px 0px 0px;
+            text-align:center;
+            line-height: 980px;
+            color: darkblue;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+        <div id="box">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+                <p>飞升的气球</p>
+                <p>可爱的小象</p>
+                <p>素雅的花篮</p>
+                <p>忧郁的美女</p>
+                <p>柔和的花朵</p>
+
+</div>
+        <script>
+            var aLi=document.getElementsByTagName('li');
+            var aP=document.getElementsByTagName('p');
+            var arr1=['image/1.jpg','image/2.jpg','image/3.jpg','image/4.jpg','image/5.jpg'];
+            var arr2=['大片1','大片2','大片3','大片4','大片5'];
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].index=i;
+                aP[i].style.backgroundImage='url("'+arr1[i]+'")';
+                aLi[i].style.backgroundImage='url("'+arr1[i]+'")';
+                aLi[i].onmouseover= function () {
+                    for (var i = 0; i < aP.length; i++) {
+                        aP[i].style.display = 'none';
+                        aLi[i].innerHTML = "";
+
+                    }
+                    this.innerHTML = arr2[this.index];
+                    aP[this.index].style.display = 'block';
+
+                }
+            };
+        </script>
+
+</body>
+</html>

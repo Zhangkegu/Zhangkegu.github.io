@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>计时器做移动</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <style>
+        #wrap{
+            width: 800px;
+            height: 500px;
+            border: 1px solid red;
+            position: relative;
+            margin: 0 auto;
+        }
+        #first{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+     <div id="wrap">
+         <div id="first"></div>
+     </div>
+
+</body>
+<script>
+    var wrap=document.querySelector('#wrap');
+    var first=document.querySelector('#first');
+//36练习中有随机数获取的知识；
+    function random(min,max){
+        return parseInt(Math.random()*(max-min)+min);
+    }
+    first.style.left=random(0,wrap.offsetWidth-first.offsetWidth)+'px';
+    first.style.top=random(0,wrap.offsetHeight-first.offsetHeight)+'px';
+
+
+
+    var judgeLeft=true;
+    var judgeTop=true;
+    move();
+
+    function move(){
+            var left=first.offsetLeft;
+            var myTop=wrap.offsetTop;
+        var timer=setInterval(function () {
+            if(judgeLeft==true){
+                left++;
+
+            }else{
+                left--;
+            }
+            if(judgeTop){
+                myTop++
+            }else{
+                myTop--;
+            }
+
+            if(left>=wrap.offsetWidth-first.offsetWidth){
+                judgeLeft=false;
+            }else if(left<=0){
+                judgeLeft=true;
+            }
+            first.style.left=left+'px';
+
+            if(myTop<=0){
+                judgeTop=true;
+            }else if(myTop>=wrap.offsetHeight-first.offsetHeight)
+            {
+                judgeTop=false;
+            }
+            first.style.top=myTop+'px';
+        },5);
+
+
+
+
+            }
+</script>
+</html>

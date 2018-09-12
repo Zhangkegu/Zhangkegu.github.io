@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>获得样式</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <style>
+        #wrap{
+            width:100px;
+            height: 100px;
+            position: absolute;
+            left: 300px;
+            top: 400px;
+            border: 1px solid red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+
+
+<script src='css/getCss.js' charset='utf-8'></script>
+
+<script>
+    //总结：offset开头获得样式值的只有四个：left top width height;
+    //offset获得的样式值不能进行赋值，例如：wrap.offsetHeight=900+"px";这种写法是无效的；
+    //要想给获得的样式进行赋值，只有如下一种方式：wrap.style.height=500+'px';
+    //如果标签被设置成display:none，那么offset方式不能获得任何值，只能通过getCss这个函数获得；
+
+
+
+
+    var wrap=document.querySelector("#wrap");
+    // 1.获得left,通过offsetLeft直接获得绝对定位的left绝对数值；
+   /* var left=wrap.offsetLeft;
+    console.log(left);
+    //2,获得top值，offsetTop
+    var Mytop=wrap.offsetTop;//定义变量名不能为top;
+    console.log(Mytop);
+    //3,获得宽度offsetWidth;
+    var width=wrap.offsetWidth;
+   console.log(width);*/
+    //4,offsetHeight
+
+   /*var height=wrap.offsetHeight;
+    console.log(height);
+    wrap.style.height=500+'px';//给样式赋值的唯一办法；
+    var height=wrap.offsetHeight;
+    console.log(height);*/
+
+    var left=getCss(wrap,'left');//通过getCss获得display:none时的样式值；
+    console.log(left);
+
+
+</script>
+</body>
+</html>

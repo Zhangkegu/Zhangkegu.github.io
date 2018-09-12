@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #time{
+            width: 90px;
+            height: 90px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="time">20</div>
+</body>
+<script>
+    var time=document.querySelector("#time");
+    var value=time.innerHTML;
+    var timer=setInterval(function () {
+        value-=1;
+        time.innerHTML=value;
+       /* if(value<=0){
+            clearInterval(timer);//if语句是通过自动到0就停止计时的条件；
+        }*/
+        time.onclick= function () {//点击事件是通过点击div块手动停止计时器；
+            clearInterval(timer);
+        };
+    },1000);
+
+
+</script>
+</html>

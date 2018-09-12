@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>瀑布流效果</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <style media="screen">
+        #wrap{
+            width: 800px;
+            border:1px solid red;
+        }
+        #wrap::after{
+            content:'';
+            display: block;
+            clear: both;
+        }
+        ul,li{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 200px;
+            float: left;
+        }
+        li{
+            width: 200px;
+            border: 1px solid gold;
+            box-sizing: border-box;
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+<div id="wrap">
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+
+</body>
+<script>
+    var wrap=document.querySelector('#wap');
+    var uls=document.querySelectorAll('ul');
+    var allNum=30;
+    begin();
+    createLi();
+    function begin(){
+        for(var i=0;i<uls.length;i++){
+            var ul=uls[i];
+            //自定义一个currentHeight属性，随时记录每一个li的当前高度值；
+            ul.currentHeight=0;
+
+        }
+    }
+    function random(min,max){
+        return parseInt(Math.random()*(max-min)+min);
+    }
+    function minHeight(){
+       /* var minHeight=uls[0].currentHeight;//定义初始高度是第一个ul的当前高度
+        for(var i=1;i<uls.length;i++){//从第二个开始比较uls的高度值
+            if(minHeight>uls[i].currentHeight){
+                minHeight=uls[i].currentHeight;
+            }
+        }*///为了拿到最小的ul返回值，把上面的代码改进一下，入下：
+        var minUL=uls[0];
+        for(var i=1;i<uls.length;i++){
+            if(minUL.currentHeight>uls[i].currentHeight){
+                minUL=uls[i];
+            }
+        }
+        return minUL;
+    }
+    function createLi(){
+        for(var i=0;i<allNum;i++){
+            var li=document.createElement('li');
+            li.style.height=random(100,300)+'px';
+            li.innerHTML=i;
+            var ul=minHeight();
+            ul.appendChild(li);
+            ul.currentHeight += li.offsetHeight;
+        }
+
+    }
+</script>
+</html>

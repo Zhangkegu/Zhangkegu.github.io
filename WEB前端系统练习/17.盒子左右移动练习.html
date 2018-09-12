@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <style>
+        #dad{
+            width:102px;
+            height: 100px;
+            overflow: hidden;
+            margin:0px auto;
+            border: 1px solid red;
+
+
+        }
+       ul{
+           margin: 0 auto;
+           width: 112px;
+           height: 30px;
+       }
+        li{
+            width: 20px;
+            height: 28px;
+            border-radius: 0 30% 0 0;
+            border: 1px solid red;
+            list-style-type: none;
+            float: left;
+            background-color: aqua;
+        }
+        #box{
+            width: 500px;
+            height:100px ;
+            margin: 0 auto;
+            border: 1px solid;
+            overflow: hidden;
+        }
+        p{
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 0 auto;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+        <div id="dad">
+
+            <div id="box">
+                <p><img src="image/1.jpg" alt=""/>1</p>
+
+                <p><img src="image/2.jpg" alt=""/>2</p>
+
+                <p><img src="image/3.jpg" alt=""/>3</p>
+
+                <p><img src="image/4.jpg" alt=""/>4</p>
+
+                <p><img src="image/5.jpg" alt=""/>5</p>
+            </div>
+
+        </div>
+
+      <script>
+          var oDiv=document.getElementById('box');
+          var aLi=document.getElementsByTagName('li');
+          var aP=document.getElementsByTagName('p');
+          var num=0;
+          for(var i=0;i<aLi.length;i++){
+
+                  for(var i=0;i<aLi.length;i++){
+                      aLi[i].onclick= function () {
+                      if(num==-400){
+                          num=100;
+                      };
+                      num=num-100;
+                      oDiv.style.marginLeft=num+'px';
+                  };
+
+              }
+
+          }
+      </script>
+</body>
+</html>

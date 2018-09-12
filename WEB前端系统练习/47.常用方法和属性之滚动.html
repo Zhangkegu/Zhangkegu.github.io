@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #wrap{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;;
+            overflow:scroll ;
+        }
+        p{
+           /* width:100%;//这是测试高度的滚动条时用的宽度*/
+            width:800px;/*这是测试滚动宽度时的宽度设置*/
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+     <div id="wrap">
+         <p>
+             三月，醉一场青春的流年。
+             慢步在三月的春光里，走
+             走停停，看花开嫣然，看
+             春雨绵绵，感受春风拂面，
+             春天，就是青春的流年。
+             青春，是人生中最美的风
+             景。青春，是一场花开的
+             遇见；青春，是一场痛并
+             快乐着的旅行；青春，是
+             一场轰轰烈烈的比赛；青
+             春，是一场鲜衣奴马的争
+             荣岁月；青春，是一场风
+             花雪月的光阴。青春往事，
+             多么甜蜜；青春岁月，多
+             么靓丽；青春流年，如火
+             如荼。青春里，我们向着
+             梦想前进。跌倒过，伤心
+             过，快乐过，痛苦过，孤
+             独过，彷徨过，迷茫过。
+             总是，在悠悠的岁月中徘
+             徊；总是，在如春的生命
+             中成长；总是，在季节的
+             交替中感悟人生四季的美
+             妙与韵律；总是，在多愁
+             善感中体悟青春的美好与
+             无奈。三月的鲜花，一树
+             树，一束束，一簇簇，而
+             青春，就是像三月的鲜花
+             一样美丽迷人，生机盎然
+             ，姹紫嫣红，生机勃勃。
+             三月，是青春里最美最温
+             暖的风景。三月的美，就
+             像青春的美，充满活力，
+             充满生机，充满昂扬的斗
+             志。三月的美，就像青春
+             的花季，在那里我们可以
+             感受青春的跳动与感动，
+             ；感受青春的悸动与心跳。
+         </p>
+     </div>
+</body>
+<script>
+    //scrollWidth和scrollHeight是它们的可滚动范围的大小；
+    var wrap=document.querySelector('#wrap');
+    //打印scrollWidth;
+    console.log(wrap.scrollWidth);
+    console.log(wrap.scrollHeight);
+    //scrollLeft和scrollTop
+    wrap.scrollLeft=100;//距离左右滚动条首段的长度
+    console.log(wrap.scrollLeft);
+    /*wrap.scrollTop=100;//滚动条距离顶端100px;
+    console.log(wrap.scrollTop);*/
+</script>
+</html>

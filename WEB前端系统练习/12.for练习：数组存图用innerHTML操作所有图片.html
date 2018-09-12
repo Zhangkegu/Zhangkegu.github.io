@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>for循环可以实现所有重复做的事情</title>
+    <style>
+        body{
+            font-size: 10px;
+            font-family: 隶书;
+
+        }
+        #box{
+            width: 1000px;
+            height: 1000px;
+            border: 1px dotted red;
+        }
+
+        #btn{
+            width:35px;
+            height: 20px;
+            box-shadow: 1px 1px 2px gray;
+
+            font-size: 8px;
+        }
+    </style>
+</head>
+<body>
+     <input type="button" value="加图" title="只可以添加一次全部图片内容哦" id="btn"/>
+     <div id="box" ></div>
+</body>
+<script>
+    var oDiv=document.getElementById('box');
+    var oBtn=document.getElementById('btn');
+
+    var arr=['image/1.jpg','image/2.jpg','image/3.jpg','image/4.jpg','image/5.jpg','image/6.jpg','image/7.jpg','image/8.jpg'];
+    var str="";
+    oBtn.onclick= function () {
+        for(i=0;i<arr.length;i++){
+            str+='<img src="'+arr[i]+'" alt="" width="100px" height="100px"/>';//不明白这行里为什么只能以这样的方式添加图片
+            // 的src;之所以写str+=''才能加载全部图片，是因为str=str+后面的图片信息才是在for循环时把每一个i的值都存储在了str
+            // 字符串中累加起来， 直到循环结束，str中存储了数组中的所有图片字符串，这样赋值给div的页面内容才是全部图片，
+            // 而不只是最后一张图片；
+            oDiv.innerHTML=str;//这句是把字符串str中的全部内容都赋值给Div块；
+
+        }
+        str="";//如果不加这句的话就会每点击一次按钮给DIV块添加一次STR中存储的全部内容；
+    }
+</script>
+</html>

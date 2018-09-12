@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>变换:transform:四种变换形式scale translate skew rotate（）</title>
+<style>
+    body{
+        height: 300px;
+        width: 300px;
+        border: 1px dashed yellow;
+        margin:0 auto;
+        background-color: yellowgreen;
+
+    }
+	   div{
+		   width:60px;
+		   height:60px;
+		   background:blue;
+           margin:100px auto;
+		   transition:1s  all;
+           border-radius: 5%;
+           transform-origin: right ;
+	   }
+    body:hover div{
+    /*transform:translate(100px,100px);/*变换的项目前面要加上transform才能显示出效果*/
+      /*  transform: rotate(130deg);*/
+        /*transform: scale(0.2);/*不接受复数 */
+        transform:skew(-30deg,-30deg);/*左右拧*/
+    }
+		   
+		   
+		   
+</style>
+</head>
+
+<body>
+      <div></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+      <div id="wrap">
+          <div id="first"></div>
+          <div id="second"></div>
+      </div>
+</body>
+<script>
+    //能够被添加的标签函数只有三个：1，appendChild  2，insertBefore   3，replaceChild
+    //删除标签的函数只有removeChild()这一个，括号里是被删除标签对象；
+    //appendChild是将标签添加到父级标签的最后一个子节点
+    var third=document.createElement('p');
+    third.innerHTML='大家好';
+    third.style.color='red';
+    var wrap=document.querySelector('#wrap');
+    //wrap.appendChild(third);//添加标签到父节点的最后一个子节点
+
+    //insertBefore
+    /* var first=document.querySelector('#first');
+     var second=document.querySelector('#second');
+     wrap.insertBefore(third,first);//把third节点添加到first节点之前；
+     wrap.insertBefore(third,second);//把third节点添加到second节点之后；*/
+
+
+    //replaceChild();替换标签
+    var first=document.querySelector('#first');
+    wrap.replaceChild(third,first);//用third 中的p标签把first标签替换掉
+
+    //删除标签：removeChild
+    wrap.removeChild(third);//移除新添加的标签p;
+
+</script>
+</html>

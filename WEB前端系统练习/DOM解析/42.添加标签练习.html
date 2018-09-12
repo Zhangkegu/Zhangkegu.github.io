@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>淘宝多个商品界面练习</title>
+    <style>
+        .a{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            margin: 2px;
+            box-shadow: 2px 2px 1px pink;
+            float: left;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        p{
+            width: 200px;
+            height: 50px;
+            border: 1px solid;
+            display: none;
+            background-color: gold;
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+      <div id="wrap"></div>
+
+</body>
+<script>
+    /*var wrap=document.querySelector('#wrap');
+    easyMore(4);
+    function easyMore(num){
+        for(var i=0;i<num;i++){
+            var div=document.createElement('div');
+            div.style.width=200+'px';
+            div.style.height=300+'px';
+            div.style.border='1px solid green';
+            div.style.float='left';
+            div.style.margin=2+'px';
+            wrap.appendChild(div);//把创建好的div块都放在wrap标签中；
+
+            //向创建的div中添加图片并设置属性：
+
+            var img=document.createElement('img');
+            img.src='image1/6.jpg';
+            img.style.width='100%';
+            img.style.height='100%';
+            div.appendChild(img);
+        }
+
+    }*/
+    //以上内容可以简写为如下：
+    var wrap=document.querySelector('#wrap');
+    createEle(4);
+    function createEle(num){
+        for(var i=0;i<num;i++) {
+            var div = document.createElement('div');
+            div.className = 'a';
+            wrap.appendChild(div);//把创建好的div块都放在wrap标签中；
+
+            //向创建的div中添加图片并设置属性：
+
+            var img = document.createElement('img');
+            img.src = 'image1/6.jpg';
+            div.appendChild(img);
+
+            //再在div下方添加文本信息；
+            var p = document.createElement('p');
+            p.innerHTML = '100$';
+            div.appendChild(p);
+            div.onmouseover = function () {
+                p.style.display='block';
+            }
+            div.onmouseout= function () {
+                p.style.display='none';
+            }
+        }
+    }
+</script>
+</html>

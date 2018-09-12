@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- reset。css是用来清除浏览器自带样式的文件 -->
+    <style>
+        #box {
+            width:800px;
+            margin:10px auto;
+        }
+        ul {
+            overflow: hidden;
+        }
+        li {
+            width:120px;
+            height:80px;
+            border:1px solid red;
+            border-radius: 6px 30px 0 0;
+            text-align: center;
+            font:24px/80px "simhei";
+            float: left;
+            margin-right: 8px;
+            background-size:100% 100%;
+            color:#fff;
+        }
+        p {
+            border:1px solid red;
+            height:500px;
+            font:120px/500px "simhei";
+            text-align: center;
+            display: none;
+            background-size:100% 100%;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var aLi = document.getElementsByTagName('li');
+            var aP = document.getElementsByTagName('p');
+            var arr1 = ['image/1.jpg','image/2.jpg','image/3.jpg','image/4.jpg','image/5.jpg'];
+            var arr2 = ['小吉','小野','小凑','小翼','小莉'];
+
+            // aLi[0].a = 0;
+            // aLi[1].a = 1;
+            // aLi[2].a = 2;
+            // aLi[3].a = 3;
+            // aLi[4].a = 4;
+
+            for(var i=0; i<aLi.length; i++){
+                aLi[i].index = i;
+                aP[i].style.backgroundImage = 'url("'+ arr1[i] +'")';
+                aLi[i].style.backgroundImage = 'url("'+ arr1[i] +'")';
+                aLi[i].onmouseover = function(){
+                    for(var i=0; i<aP.length; i++){
+                        aP[i].style.display = 'none';
+                        aLi[i].innerHTML = '';
+                    }
+                    this.innerHTML = arr2[this.index];
+                    aP[this.index].style.display = 'block';
+                };
+            }
+        };
+    </script>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li a="0"></li>
+        <li a="1"></li>
+        <li a="2"></li>
+        <li a="3"></li>
+        <li a="4"></li>
+    </ul>
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <p>p4</p>
+    <p>p5</p>
+</div>
+</body>
+</html>

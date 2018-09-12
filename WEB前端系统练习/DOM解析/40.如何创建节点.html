@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>创建节点</title>
+</head>
+<body>
+
+</body>
+<script>
+    //创建节点需要如下三个步骤：
+    //1,创建节点标签：createElement
+    var div=document.createElement('div');
+    div.innerHTML='hello';
+    //2.获得要添加标签的父级标签，也就是把标签添加给哪个标签里；
+    var body=document.getElementsByTagName('body')[0];//获得标签名称body;
+    //3,添加子节点标签给父级标签；
+    body.appendChild(div);
+
+</script>
+</html>

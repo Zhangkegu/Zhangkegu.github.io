@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+            display: block;
+            width: 400px;
+            height: 40px;
+            background-color: aqua;
+            border: 1px dotted coral;
+            list-style-position: inside;
+            list-style-type: circle;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ol id="ol">
+        <li >1</li>
+        <li >2</li>
+        <li >3</li>
+        <li >4</li>
+        <li >5</li>
+    </ol>
+</div>
+</body>
+<script>
+    var aLi=document.getElementsByTagName('li');//这是被自动存放在名为oLi的数组中的一组标签；
+    var oL=document.getElementById('ol');
+
+        for(var i=0;i<aLi.length;i++) {
+            aLi[i].onclick = function () {
+                alert(this.innerHTML);//可以打印标签里的内容，不可以打印标签，否则它显示的是页面中的什么元素里的什么标签
+        }
+    };
+
+
+
+
+</script>
+</html>

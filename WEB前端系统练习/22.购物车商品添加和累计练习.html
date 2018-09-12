@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box1{
+            width: 130px;
+            height: 130px;
+            margin: 20px auto;
+            font-family: 楷体;
+            font-weight: bolder;
+            border: 1px solid red;
+            box-shadow: 2px 2px 2px pink;
+            text-align: center;
+        }
+        #box2{
+            width: 130px;
+            height: 240px;
+            margin: 20px auto;
+            font-family: 楷体;
+            font-weight: bolder;
+            border: 1px solid red;
+            box-shadow: 2px 2px 2px pink;
+            text-align: center;
+        }
+        input{
+            width: 30px;
+            height: 20px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid orange;
+
+        }
+    </style>
+</head>
+<body>
+<p style="text-align: center">淘宝购物车加减商品件数功能模仿</p>
+<div id="box1">
+    <p>添加商品数量：</p>
+    <input type="button" value="-" />
+    <input type="text" value="0"readonly="readonly"/>
+    <input type="button" value="+"/><br/>
+    <p>累计商品<input type="text" value="0" readonly="readonly"/>件</p>
+</div>
+    <div id="box2">
+
+        <p>添加商品数量：</p>
+        <p>商品1：</p>
+        <input type="button" value="-" />
+        <input type="text" value="0"readonly="readonly"/>
+        <input type="button" value="+"/><br/>
+        <p>商品2：</p>
+        <input type="button" value="-" />
+        <input type="text" value="0"readonly="readonly"/>
+        <input type="button" value="+"/>
+        <p>累计商品<input type="text" value="0" readonly="readonly"/>件</p>
+    </div>
+
+<script>
+    var aBtn=document.getElementsByTagName('input');
+
+        aBtn[0].onclick= function () {
+
+            if(aBtn[1].value!=0) {
+
+                aBtn[1].value -=1;
+                aBtn[3].value=aBtn[1].value;
+
+            }
+        }
+        aBtn[2].onclick= function () {
+                if(aBtn[1].value>=0){
+                   aBtn[1].value-=-1;
+                    aBtn[3].value=aBtn[1].value;
+                }
+    }
+    aBtn[4].onclick= function () {
+
+        if(aBtn[5].value!=0) {
+
+            aBtn[5].value -=1;
+            aBtn[10].value=aBtn[5].value-(-aBtn[8].value);
+
+        }
+    }
+    aBtn[6].onclick= function () {
+        if(aBtn[5].value>=0){
+            aBtn[5].value-=-1;
+            aBtn[10].value=aBtn[5].value-(-aBtn[8].value);
+        }
+        aBtn[7].onclick= function () {
+
+            if(aBtn[8].value!=0) {
+
+                aBtn[8].value -=1;
+                aBtn[10].value=aBtn[8].value-(-aBtn[5].value);
+
+            }
+        }
+        aBtn[9].onclick= function () {
+            if(aBtn[8].value>=0){
+                aBtn[8].value-=-1;
+                aBtn[10].value=aBtn[8].value-(-aBtn[5].value);
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

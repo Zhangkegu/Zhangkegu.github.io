@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 142px;
+            height: 40px;
+            margin: 0 auto;
+        }
+        #span1{
+            text-align: center;
+            width: 140px;
+            height: 40px;
+            border: 0.1px solid;
+            font-size: 20px;
+            line-height: 40px;
+            margin: 1px auto;
+        }
+        #ul1{
+            margin: 0 auto;
+            display: none;
+            width: 138px;
+            height: 157px;
+            border:0.1px solid;
+            line-height: 30px;
+        }
+        ul{
+            margin: 0 auto;
+        }
+        li{
+            width: 138px;
+            height: 38px;
+            list-style-type: none;
+
+            margin: 0px auto;
+            text-align: left;
+        }
+        li:hover {
+            background-origin: content-box;
+            font-size: 20px;
+        }
+        li:active{
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+     <div id="box">
+         <div id="span1"><span>设置</span></div>
+         <div id="ul1">
+             <ul >
+                 <li>搜索设置</li>
+                 <li>高级设置</li>
+                 <li>关闭预测</li>
+                 <li>搜索历史</li>
+             </ul>
+         </div>
+     </div>
+     <script>
+         window.onload=function() {
+             var btn = document.getElementById("box");
+             var btn1 = document.getElementById("ul1");
+             btn.onmouseover = function () {
+                 btn1.style.display = "block";
+             };
+             btn.onmouseout = function () {
+                 btn1.style.display = "none";
+             }
+         }
+     </script>
+</body>
+</html>

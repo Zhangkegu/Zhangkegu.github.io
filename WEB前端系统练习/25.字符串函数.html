@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script>
+    /*字符串的增删改查功能；如下是第一个增加功能，有两种方法*/
+    /*var str='hello';
+    str+="张刻骨！";//1.通过加号进行字符串之间的拼接；
+    alert(str);*/
+   /*var str1='hello,';
+    var str2='张刻骨！';
+    var str=str1.concat(str2);//2.通过concat（）;函数来进行字符串之间的拼接；
+    alert(str);*/
+
+    /*字符串的增删改查功能；如下是删除功能，有一种方法：replace（）；*/
+    /*var str='hello,张刻骨！';
+    var value=str.replace(',张刻骨','');//用replace（）函数来实现功能，前一个数据表示要被删除的那个字符串，后面用空字符串来替换前面的那个数据，以此来实现删除；
+    alert(value);*/
+
+    /*字符串的增删改查功能；如下是修改功能，有两种方法*/
+   /* var str='hello,张刻骨！';
+    var value=str.replace('张刻骨','大神');//方法一：同上面的删除方法用的是一个函数，只不过是把空字符串改成了想要换成的字符串；
+    alert(value);*/
+    /*var str='a0b0c0d0e';//也可以写成var str='a,b,c,d,e';但在split（‘’）中也应当是","逗号作为分隔符；
+    var arr=str.split("0");//方法二：将字符串通过固定的格式改为数组，split("0")；里的0或者“，”是字符串中用来分割字符的那个符号。
+    console.log(arr);
+    alert(arr);*/
+
+
+    /*字符串的增删改查功能；如下是查找功能，有四种方法*/
+    /*var str='lbcdii';
+    for(var i=0;i<str.length;i++){
+        var a=str.charAt(i);//方法一：字符串.charAt();函数方法，通过下表查找字符串中的每一个字符；下表从零开始；
+        alert(a);
+    }*/
+    /*var str='hello ni hao Miss zhang';
+    var value=str.search('hao');//方法二：通过字符串。search();函数方法查找，找到的是被查找字符串的第一个字符的下标，其中整个字符串中的空格也算是字符；
+    alert(value);*/
+    /*通过charAt()；方法来查找一个字符串中某个字符的个数；*/
+    /*var str='hello ni hao Miss zhang';
+    var num=0;
+    for(var i=0;i<str.length;i++){
+        var a=str.charAt(i);//查找字符串中'l'这个字符的个数，通过charAt（）；方法来进行每一个字符的查找，如果a==“l”这个字符就让num++,最后打印出num的值就知道有几个l字符了；
+        if(a=='l') {
+            num++;
+        }
+    }
+    alert(num);*/
+    /*查找的方法三：indexOf()；没有查找到的话返回的下标就会是-1；*/
+   /* var str="hello,dear!";
+    var index=str.indexOf('e');//被找到，字符下标为1；
+    alert(index);
+    var index=str.indexOf('M');//没有被找到，返回字符下标为-1；
+    alert(index);*/
+    /*查找的方法四：lastIndexOf();查找最后一个匹配的字符；*/
+    /*var str='hello,lily';
+    var index=str.lastIndexOf('l');//被找到，返回下表为8；（字符串中下标从0开始计算）
+    alert(index);*/
+
+
+
+    /*功能函数*/
+    /*var str='hello';
+    var a=str.toUpperCase();//用toUpperCase();方法来将字符串全部转换成大写字母；
+    alert(a);
+    var str1='WORLD';
+    var b=str1.toLowerCase();//用toLowerCase();方法来将字符串全部转换成小写字母；
+    alert(b);*/
+    /*字符串比较：通过ASCII码表,用localCompare();方法进行比较，字符串a大于字符串b，结果是1；小于是-1；等于是0；*/
+   /* var a='abbca';
+    var b='abcab';
+    var value= a.localeCompare(b);//通过localCompare();方法进行比较，字符串a <字符串b,所以返回-1；
+    alert(value);
+    var value= b.localeCompare(a);//通过localCompare();方法进行比较，字符串b <字符串a,所以返回1；
+    alert(value);
+    var value= a.localeCompare(a);//通过localCompare();方法进行比较，字符串a =字符串a,所以返回0；
+    alert(value);*/
+
+    /*截取字符串中的某一小段字符串，用字符串.slice(start,end);方法截取，start 是截取的第一个字符的下标，end 是截取的最后一个字符的下标+1；*/
+    /*var str="hello ni hao Miss Zhang";
+    var value=str.slice(9,17);//截取从开始下标算起，到最后一个下标的前一个字符结束之间的字符串；
+    alert(value);*/
+
+
+
+
+
+
+
+
+</script>
+</html>

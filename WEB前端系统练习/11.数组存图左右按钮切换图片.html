@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+
+            margin: 10px auto;
+            position: relative;
+        }
+        #img1{
+            display: block;
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            box-shadow: 3px 3px 4px gray,-3px -3px 3px pink;
+        }
+        a{
+            display: block;
+            width: 30px;
+            height: 22px;
+            background-color: #ffffff;
+            box-shadow: 1px 1px 1px gray;
+            margin: 4px;
+            border-radius: 20%;
+            text-decoration: none;
+            font-weight: bolder;
+            text-align: center;
+        }
+        #left1{
+            position: absolute;
+            margin-left: 0px;
+            margin-top: 150px;
+        }
+        #right1{
+            position: absolute;
+            margin-left: 270px;
+            margin-top: 150px;
+        }
+    </style>
+</head>
+<body>
+      <div id="box">
+          <img src="image/1.jpg" alt=""  id="img1"/>
+          <a href="#" id="left1"> << </a>
+          <a href="#" id="right1"> >> </a>
+      </div>
+</body>
+<script>
+    var oImg=document.getElementById('img1');
+    var left=document.getElementById('left1');
+    var right=document.getElementById('right1');
+    var arr=['image/1.jpg','image/2.jpg','image/3.jpg','image/4.jpg','image/5.jpg','image/6.jpg','image/7.jpg','image/8.jpg'];
+    var num=0;
+    right.onclick=function(){
+        num++;
+        if(num==arr.length){
+            num=0;
+            }
+            oImg.src=arr[num];
+
+    };
+    left.onclick=function(){
+        num--;
+        if(num<0){
+            num=arr.length-1;//数组的长度是8，如果num=8，那么数组中没有arr[8]这张图，所以会显示一张空才会再显示最后一张，因此num应该等于数组长度-1才是最后一张图；
+        }
+        oImg.src=arr[num];
+
+    };
+</script>
+</html>

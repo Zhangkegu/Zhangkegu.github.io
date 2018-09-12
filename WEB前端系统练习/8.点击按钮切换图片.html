@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #btn{
+            width: 40px;
+            height: 20px;
+            font-size: 5px;
+            background-color: teal;
+            border-radius: 10%;
+            margin-left: 20px;
+        }
+        img{
+            display: block;
+            width: 250px;
+            height: 250px;
+            box-shadow: 1px 1px 12px gray;
+            margin: 10px;
+
+        }
+
+    </style>
+</head>
+<body>
+<img src="image/1.jpg" alt="" title="点击下面的按钮可以换图看啦！" id="img1"/>
+<br/>
+
+<br/>
+<input type="button" value="换张图" id="btn"/>
+
+
+<script>
+
+    var btn1=document.getElementById("btn");
+    var oImg=document.getElementById("img1");
+    var d=2;
+    btn1.onclick = function () {
+        if(d>8){
+            d=1;
+        }/*控制图片到最后一张时可以循环到第一张继续切换图片*/
+            oImg.src='image/'+d+'.jpg';/*这是写操作*/
+            d=d+1;
+        /* alert(oTxt.value);/*这是读操作*/
+    };
+</script>
+</body>
+
+</html>

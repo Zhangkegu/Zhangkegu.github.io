@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: crimson;
+            text-align: center;
+            line-height: 40px;
+            font-size: 30px;
+            box-shadow: 2px 2px 2px gray;
+            color: #ffffff;
+            float: left;
+            margin: 5px;
+            list-style-type: none;
+        }
+        .active{
+            background-color: #ffffff;
+            color: red;
+            box-shadow: -2px -2px 2px pink;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+</body>
+<script>
+    var aLi=document.getElementsByTagName('li');
+
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].onclick=function(){
+                for(i=0;i<aLi.length;i++){
+                    aLi[i].className="";//先把每个Li标签的class属性清空才会随着点击给被点击对象单独添加效果；
+                }
+               this.className='active';//这个部分只能用this来给被点击的这个li 标签添加classname属性，因为
+               // 在页面被打开的时候，这个程序就整个被加载完成了。而for循环也已经被循环过了，只有function没有被触发程序，
+               // 所以此时如果用aLi[i]来进行classname 添加新属性的话，此时的i是等于5，而aLi[5]就是指数组中的第六个li标签，
+               // 我们的数组中没有第六个标签，所以不能触发onclick事件，效果也就无法出现。
+            };
+        };
+</script>
+</html>

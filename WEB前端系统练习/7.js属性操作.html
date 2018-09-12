@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>通过从文本框输入数值点击按钮来呈现你要欣赏该数值对应的图片的小例子</title>
+    <style>
+        #txt{
+            width: 80px;
+            height: 20px;
+        }
+        #btn{
+            width: 40px;
+            height: 20px;
+            font-size: 5px;
+            background-color:yellow;
+            border-radius: 40%;
+            margin-left: 20px;
+        }
+        img{
+            display: block;
+            width: 250px;
+            height: 250px;
+            box-shadow: 1px 1px 12px gray;
+            margin: 10px;
+
+        }
+
+    </style>
+</head>
+<body>
+<input type="text" id="txt"/>
+<input type="button" value="来图" id="btn"/>
+<br/>
+<br/>
+<img src="" alt="想看美图？输入1-8的数字就让看！哼~" title="快在上面输入1到8的数字点击看图吧" id="img1"/>
+
+<script>
+
+    var btn1=document.getElementById("btn");
+    var oImg=document.getElementById("img1");
+    var oTxt=document.getElementById("txt");
+
+    btn1.onclick = function () {
+        var d=Number(oTxt.value);
+        if(d>8||d<1){
+            alert("没有这张图片，只有1-8张美图哦~");
+        }else{
+            oImg.src='image/'+d+'.jpg';/*这是写操作*/
+        }
+
+        /* alert(oTxt.value);/*这是读操作*/
+
+
+
+
+    };
+</script>
+</body>
+
+</html>

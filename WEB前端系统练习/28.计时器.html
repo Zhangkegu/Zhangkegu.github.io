@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #btn{
+           width: 50px;
+            height: 40px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="停止" id="btn"/>
+</body>
+<script>
+    var btn=document.querySelector("#btn");
+    var timer=setInterval(function(){
+        console.log('1');
+    },1000);//每隔1000ms执行一次前面的函数；
+    btn.onclick= function () {
+        clearInterval(timer);//当btn按钮被点击时触发函数停止计时器；
+    };
+
+
+</script>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>六面盒子</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <style>
+        @keyframes roll {
+
+            10%{transform: rotateX(80deg)}
+
+            30%{transform: rotateY(-80deg)}
+
+            50%{transform: rotateZ(100deg)}
+
+            70%{  transform: rotateX(-190deg)}
+
+            90%{transform: rotateY(780deg)}
+
+            100%{transform:rotateZ(-10deg)}
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            padding: 200px;
+            border: 2px solid red;
+            perspective: 1000px;
+        }
+        #val{
+            margin:0px auto;
+            width:200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform-origin: center;
+            animation: 4s 0.5s roll linear 1;
+
+        }
+        #val div{
+
+            width: 200px;
+            height: 200px;
+            border-radius: 2px;
+            position: absolute;
+            text-align: center;
+            box-shadow: 1px 1px 1px green;
+            font-size:80px;
+            line-height: 200px;
+            background-color: red;
+            box-shadow: 2px 2px 1px pink,-2px -2px 1px pink;
+        }
+
+        #val div:nth-of-type(1){
+            top: -200px;
+            background-color: aqua;
+            transform-origin: bottom;
+            transform: rotateX(90deg);
+        }
+        #val div:nth-of-type(2){
+            left: -200px;
+            background-color: salmon;
+            transform-origin: right;
+            transform: rotateY(-90deg);
+        }
+        #val div:nth-of-type(3){
+            bottom: -200px;
+            background-color: darkorchid;
+            transform-origin: top;
+            transform: rotateX(-90deg);
+        }
+        #val div:nth-of-type(4){
+            right: -200px;
+            background-color: chartreuse;
+            transform-origin: left;
+            transform: rotateY(90deg);
+        }
+        #val div:nth-of-type(5){
+            background-color: yellow;
+            transform: translateZ(-200px) rotateX(-180deg);
+        }
+        #val div:nth-of-type(6){
+
+            background-color: deeppink;
+
+        }
+       /*#box:hover #val{
+           transform: rotateX(100deg) rotateY(200deg) rotateZ(200deg);
+       }*/
+    </style>
+</head>
+<body>
+   <div id="box">
+       <div id="val"><!--想让立体动就是让六个面的父级容器#val块动，即给#val调用关键帧执行动画-->
+           <div >1</div>
+           <div >2</div>
+           <div >3</div>
+           <div >4</div>
+           <div >5</div>
+           <div >6</div>
+       </div>
+   </div>
+</body>
+</html>

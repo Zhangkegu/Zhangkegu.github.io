@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/reset.css"/>
+
+    <title>大图滚动:课后作业把轮播图的按钮都加进去</title>
+    <style>
+        #wrap{
+            width: 300px;
+            height: 200px;
+            border: 1px solid gray;
+            overflow: hidden;
+            margin: 100px auto;
+            position: relative;
+            box-shadow: 2px 2px 2px gray,-2px -2px 2px #5E7E80;
+            border-radius: 20px;
+        }
+        ul{
+            width: 1500px;
+            height: 200px;
+            position: absolute;
+        }
+        ul::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        li{
+            width: 300px;
+            height: 200px;
+            background-color: red;
+            float: left;
+
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+      <div id="wrap">
+          <ul>
+              <li><img src="image1/3.jpg" alt="" title="3"/></li>
+              <li><img src="image1/1.jpg" alt="" title="1"/></li>
+              <li><img src="image1/2.jpg" alt="" title="2"/></li>
+              <li><img src="image1/3.jpg" alt="" title="3"/></li>
+              <li><img src="image1/1.jpg" alt="" title="1"/></li>
+          </ul>
+      </div>
+</body>
+<script src="css/getCss.js"  charset="utf-8"></script>
+<script type="text/javascript">
+    var ul=document.querySelectorAll('ul')[0];
+    var wrap=document.querySelector('#wrap');
+    var lis=document.querySelectorAll('li');//优化之后需要li 的总个数-1之后再乘以一个li的宽度来实现动态添加图片或者删除图片不用多次计算长宽修改值；
+    var width=getCss(wrap,'width');//获取wrap的宽度也就是li的宽度
+    width=width.replace('px','');
+    //正常显示应该在第二个li里的图片开始；需要写一个函数控制，如下：
+    init();
+    function init(){
+        ul.style.left=-width+'px';
+    }
+    move();
+
+    //下面这个是向左移动，还应该有向右移动的选择，应该精简函数，通过命名函数传参方式实现；
+    /*function move(){
+        var left=getCss(ul,'left');
+        left=left.replace('px','');
+        var timer=setInterval(function () {
+            left--;
+            if(left==-(lis.length-1)*width){//这里的left=-1200;优化后要改写成left==-(lis.length-1)*width;
+                ul.style.left=-width+'px';
+                left=-width;
+            };
+            ul.style.left=left+'px';
+
+        },10);
+    };*/
+    function begin(){
+        var timer=setInterval(function () {
+            move('right');
+        },3000);//调用函数的时间要比函数控制图片移动的时间长一点才会没有隐式问题的正常轮播；
+
+    };
+
+    function changePosition(offValue){
+        ul.style.left=offValue+'px';
+    };
+
+
+    begin();
+
+
+    function move(direction) {
+        var left = getCss(ul, 'left');
+        left = left.replace('px', '');
+        var timer = setInterval(function () {
+            if(direction=='left'){
+                left--;
+            }else if(direction=="right"){
+                left++;
+            }
+            if (left == -(lis.length - 1) * width) {//这里的left=-1200;优化后要改写成left==-(lis.length-1)*width;
+
+                left = -width;
+            };
+            if(left==0){
+
+                left=-(lis.length-2)*width;
+            }
+            if(left%width==0){//当移动像素为宽度的整数倍就停掉计时器；
+                clearInterval(timer);
+            }
+            changePosition(left);
+
+        }, 10);
+    }
+    //没走200px 就让图片停留1s
+
+
+    //
+    
+</script>
+</html>
