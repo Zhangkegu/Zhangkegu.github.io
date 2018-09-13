@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>难点鼠标：事件冒泡之淘宝练习</title>
+    <style>
+        #wrap{
+            width: 200px;
+            height:200px;
+            background-color: green;
+        }
+        .first{
+            width:200px;
+            height: 200px;
+            border: 1px solid red;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+        <div id="wrap"></div>
+
+</body>
+<script type="text/javascript">
+    var wrap=document.querySelector('#wrap');
+    wrap.addEventListener('mouseover',function(e){
+        var ev=e||window.event;
+          var div=document.createElement('div');
+          div.className='first';
+        //添加一个冒泡阻止事件，使子标签不再进行事件的冒泡触发；
+        div.addEventListener('mouseover', function (e) {
+            var ev=e||window.event;
+            if(ev.stopPropagation){
+                ev.stopPropagation();
+            }else{
+                ev.cancelBubble=true;
+            }
+        });
+        //让鼠标离开盒子之后恢复原样式，即删除。first这个class类名；
+
+        div.addEventListener('mouseout',function(){
+            wrap.removeChild(this);
+        },false);
+          this.appendChild(div);
+    },false);
+
+
+</script>
+</html>

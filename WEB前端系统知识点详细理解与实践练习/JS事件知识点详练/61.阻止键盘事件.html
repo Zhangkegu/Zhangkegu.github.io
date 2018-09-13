@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>与Key相关的都是键盘相关事件</title>
+</head>
+<body>
+
+</body>
+<script>
+    //键盘事件都是添加在window上面的；
+    //console.log(window);
+    //onkeydown, onkeyup, onkeypress;
+    //例子1：
+  /*window.onkeydown= function (e) {
+        var ev=e||window.event;
+       console.log(ev.keyCode);
+        if(ev.keyCode!=65){
+            console.log('点击的不是a');
+        }else{
+            alert('按了a老大');
+        }
+    };*/
+
+
+    //2.测试window.onkeyup
+
+    /*window.onkeyup=function(){
+        alert('点击抬起');
+    };*/
+
+    window.onkeypress=function(e){
+        var ev=e||window.event;
+        console.log(ev.keyCode);
+    }
+
+    //注意：onkeypress只支持数字和字母键还有回车，不支持其他键；
+    // 而onkeydown几乎支持所有键，比如Tab；并且onkeydown比onkeypress先执行；
+
+
+
+
+
+</script>
+</html>

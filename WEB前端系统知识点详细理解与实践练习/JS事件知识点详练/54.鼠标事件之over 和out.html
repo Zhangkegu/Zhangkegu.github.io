@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>鼠标事件：淘宝移入盒子添加新样式，离开盒子样式恢复原理</title>
+    <style>
+        #wrap{
+            width: 100px;
+            height: 100px;
+            background-color: dodgerblue;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+        <div id="wrap"></div>
+
+</body>
+<script>
+    //1.onmouseover
+    //2.onmouseout//前两个成对出现
+    //3.onmouseenter
+    //4.onmouseleave//后两个成对出现；
+    //前两对事件
+    /*var wrap=document.querySelector('#wrap');
+    wrap.onmouseover= function () {
+        console.log('进入盒子啦');
+    };
+    wrap.onmouseout= function () {
+        console.log('你出去了');
+    }*/
+
+    //后两对事件
+    var wrap=document.querySelector('#wrap');
+    wrap.onmouseenter=function(){
+        console.log('第二种方式进入盒子');
+    };
+    wrap.onmouseleave=function(){
+        console.log('第二种方式离开了盒子');
+    }
+</script>
+</html>

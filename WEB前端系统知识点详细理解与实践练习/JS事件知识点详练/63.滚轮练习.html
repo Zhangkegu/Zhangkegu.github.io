@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>mousewheel的练习</title>
+</head>
+<body>
+
+</body>
+<script src="js/wheel.js" charset="utf-8"></script>
+<script>
+    //onmousewheel:主要针对于非火狐浏览器的使用方式；
+
+    //非火狐浏览器的使用方式
+   /* window.onmousewheel=function(e){
+        //window系统的现代浏览器向下滑动是负值-150，向上滑动是正值150
+        //
+        var ev=e||window.event;
+        console.log(ev);
+    }*/
+
+    //火狐浏览器的滚动方式:通过事件监听的方式来添加；
+    /*window.addEventListener('DOMMouseScroll', function (e) {
+        var ev=e||window.event;
+        //火狐浏览器向下滚动是3，向上滚动是-3；
+        console.log(ev);
+    },false);*/
+
+    /*var value=wheel();
+    if(value=true){
+        console.log('向下');
+
+    }else{
+        console.log('向上');
+    }*/
+
+    wheel(function (value) {
+        if(value){
+            console.log('向上');
+        }
+        else{
+            console.log('向下');
+        }
+    });
+
+</script>
+</html>

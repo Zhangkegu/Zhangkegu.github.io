@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件对象练习</title>
+    <style>
+        #wrap{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+     <div id="wrap"></div>
+
+</body>
+<script>
+    //点击window的当前屏幕任意位置，让盒子跟着走向这个位置；
+    var wrap=document.querySelector('#wrap');
+    window.onclick= function (e) {
+        var ev=e||window.event;
+        var x=ev.offsetX;
+        var y=ev.offsetY;
+        //将x和y分别复制给wrap的left和top
+        //wrap.style.left=x+'px';
+        //wrap.style.top=y+'px';//这是以左上顶点为定位进行的移动，要让它以盒子中心为原点进行定位应当如下：
+        wrap.style.left=x-wrap.offsetWidth/2+'px';
+        wrap.style.top=y-wrap.offsetHeight/2+'px';
+        //回顾offsetWidth和offset Height分别是获得标签的宽和高；得到的结果是数字；上面是用标签来调用宽和高的；
+
+    }
+</script>
+</html>

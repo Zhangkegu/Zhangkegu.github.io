@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>键盘练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+
+</body>
+<script>
+    var wrap=document.querySelector('#wrap');
+    window.onkeydown=function(e){
+        var ev=e||window.event;
+        console.log(ev.keyCode);//获得上下左右键的编码号；左37，上38，右39，下40
+        //上下左右的移动实在当前值的基础上进行移动的，所以应该先获得当前值
+        var currentLeft=wrap.offsetLeft;
+        var currentTop=wrap.offsetTop;
+        //进行移动的控制程序
+        switch (ev.keyCode){
+            case 37://左
+                  currentLeft-=100;
+                    wrap.style.left=currentLeft+'px';
+                break;
+            case 38://上
+                    currentTop-=100;//向上移动是top值变小使上间距变小；
+                    wrap.style.top=currentTop+'px';
+                break;
+            case 39://右
+                    currentLeft+=100;
+                    wrap.style.left=currentLeft+'px';//向右就是让left值变大；
+                break;
+            case 40://下
+                    currentTop+=100;
+                    wrap.style.top=currentTop+'px';//向下就是让top值变大；
+                break;
+            default:
+        }
+
+    }
+</script>
+</html>

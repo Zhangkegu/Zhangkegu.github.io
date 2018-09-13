@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件监听</title>
+    <style>
+        #wrap{
+            width: 300px;
+            height:300px;
+            background-color: goldenrod;
+            position: relative;
+        }
+        #first{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+
+        }
+    </style>
+</head>
+<body>
+      <!--事件监听可以给标签添加多个点击事件-->
+      <div id="wrap">
+          <div id="first"></div>
+      </div>
+
+</body>
+<script>
+    var wrap=document.querySelector('#wrap');
+    var first=document.querySelector('#first');
+    //事件监听也分为现代浏览器和IE浏览器的各自写法；
+    //现代浏览器的写法：
+    //addEventListerner中的三个形参
+    //形参1：代表那种类型的事件；放在分号中；
+    //形参2：代表具体触发的是什么事件内容，即是什么函数；
+    //形参3:false是代表：冒泡；true:是代表事件捕获；
+    //形参3都是false时时进行事件冒泡的；都是true时是先执行第一个函数然后按顺序往下执行的；
+    /*wrap.addEventListener('click', function () {
+        alert('wrap点击');
+    },true);
+    first.addEventListener('click', function () {
+        alert("first点击");
+    },true);*/
+
+    //在这种监听事件中，依然可以写阻止冒泡的事件
+   /* wrap.addEventListener('click', function () {
+        alert('wrap点击');
+    },false);
+    first.addEventListener('click', function (e) {
+        alert("first点击");
+        var ev=e||window.event;
+        if(ev.stopPropagation){//加了阻止冒泡的条件就不会进行事件冒泡了。
+            ev.stopPropagation();
+        }else{
+            ev.cancelBubble=true;
+        }
+
+    },false);*/
+
+    //在同一个对象中添加多个监听事件：
+    /*wrap.addEventListener('click', function () {
+        alert('wrap点击事件1');
+    },false);
+    wrap.addEventListener('click', function () {
+        alert("wrap点击事件2");
+    },false);*/
+
+
+
+    //1.删除事件监听:要删除哪个函数不能直接把匿名函数写在第二个形参处，而应当把要删除的
+    //哪个函数提取出来写成命名函数，然后直接把函数名卸载第二个形参中，把添加监听事件函数位置的参数也要写成函数名；
+
+     //比如要删除第一个点击事件，就把第一个点击事件写成命名函数提取出来；
+    /*function first(){//提取出来的命名函数
+        alert('wrap点击事件1');
+    };
+
+    wrap.addEventListener('click', first,false);
+    wrap.addEventListener('click', function () {
+        alert("wrap点击事件2");
+    },false);
+    wrap.removeListener('click',first);//要想删除函数必须将函数在外部进行命名定义；
+    */
+
+
+
+    //2,删除事件监听的第二种写法：匿名函数
+
+    /*var first= function () {
+        alert('wrap点击事件2');
+    }
+    wrap.addEventListener('click', function () {
+        alert("wrap点击事件1");
+    },false);
+    wrap.addEventListener('click', first,false);
+
+    //将第二个监听事件的匿名函数赋值给一个定义的变量first，想要删除函数就可以直接删除变量就可以；
+    wrap.removeEventListener('click',first);*/
+
+
+
+
+
+</script>
+</html>

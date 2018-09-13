@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>IE浏览器的监听事件写法</title>
+    <style>
+        #wrap{
+            width: 300px;
+            height:300px;
+            background-color: goldenrod;
+            position: relative;
+        }
+        #first{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+
+        }
+    </style>
+</head>
+<body>
+<!--事件监听可以给标签添加多个点击事件-->
+<div id="wrap">
+    <div id="first"></div>
+</div>
+
+</body>
+<script>
+    //IE事件监听，现代浏览器不支持此写法，IE11以上的浏览器也不支持,因为IE11以上就已经符合W3C标准了；
+    //IE监听的写法与现代浏览器的不同：
+    //1.现代：addEventListerner('哪个类型'，‘函数’，Boolean值);
+    //IE：attachEvent('哪个类型','函数’）；
+    //2.现代：removeEventListerner('哪个类型','函数名’）；
+    //IE：detachEvent('哪个类型','函数名'）；
+
+    /*var wrap=document.querySelector('#wrap');
+    var first=document.querySelector('#first');
+    wrap.attachEvent('onclick',function(){
+    //效果要在IE浏览器的仿真里面切换到IE11一下的浏览器才能看出点击效果；
+        alert('IE浏览器的wrap点击');
+    });*/
+
+    //删除监听事件和现代浏览器相似，都要把匿名函数提取出来命名或者赋值才能进行删除；
+    //如下：
+   /* var wrap=document.querySelector('#wrap');
+    var first=document.querySelector('#first');
+    wrap.attachEvent('onclick',first);
+    wrap.attachEvent('onclick',function(){
+        //效果要在IE浏览器的仿真里面切换到IE11一下的浏览器才能看出点击效果；
+        alert('IE浏览器的wrap第二个点击');
+    });
+    //提取函数
+    var first=function(){
+        alert('IE浏览器的wrap点击');
+    };
+    wrap.detachEvent('onclick',first);
+    */
+
+
+    //两种浏览器的兼容性写法：
+    var wrap=document.querySelector('#wrap');
+    //提取函数
+
+    var first=function(){
+        alert('兼容的wrap第一个点击');
+    };
+
+    wrap.addEventListerner('click',function(){
+        alert('兼容的wrap第二个点击');
+    },false);
+    wrap.attachEvent('onclick',first);//只有在IE浏览器中可以看到效果；现代浏览器会报错IE写法；
+    //兼容性判断
+    if(wrap.addEventHandler){
+        wrap.addEventListener('click',first,false);
+    }else{
+        wrap.attachEvent('onclick',first);
+    }
+
+</script>
+</html>

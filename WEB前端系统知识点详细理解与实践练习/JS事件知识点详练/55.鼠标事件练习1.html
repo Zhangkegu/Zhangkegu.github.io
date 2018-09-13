@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拖拽标签移动练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+     <div id="wrap"></div>
+
+</body>
+<script>
+    var div=document.querySelector('#wrap');
+    //第一步：按住，第二步：移动；就是移动事件是在按住事件之内发生的
+    //事件响应必须在事件标签的范围以内才有效；所以抬起操作在window里最好；
+    div.onmousedown= function (e) {
+        var myEv=e||window.event;//得到鼠标当前位置；
+        var currentX=myEv.offsetX;
+        var currentY=myEv.offsetY;
+        window.onmousemove= function (e) {
+            //需要获得鼠标移动的当前位置
+            var ev=e||window.event;
+            var x=ev.clientX;
+            var y=ev.clientY;//当前位置是指鼠标移动到的相对浏览器边框的距离
+            div.style.left=x-currentX+'px';
+            div.style.top=y-currentY+'px';//此时鼠标抬起盒子仍然跟着鼠标移动，处理方法如下：
+        };
+        window.onmouseup= function () {
+            //将移动事件取消
+            window.onmousemove=null;
+        };
+    };
+
+
+</script>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件冒泡</title>
+    <style>
+        #wrap{
+            width: 300px;
+            height:300px;
+            background-color: green;
+            position: relative;
+        }
+        #first{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+
+        }
+
+    </style>
+
+
+</head>
+<body>
+         <!--
+         如果两个或者多个标签叠在一起，一旦这几个标签都有事件触发，那么在点击的时候会同时触发这些事件，称之为事件冒泡；
+         -->
+<div id="wrap">
+    <div id="first"></div>
+</div>
+</body>
+<script>
+
+    //事件通过层级关系进行传递的过程就叫事件冒泡；没有层级关系的标签之间不能有事件冒泡；
+    //阻止事件冒泡的方式
+    //ie浏览器是cancelBubble
+    //现代浏览器是：stopPropagation,有google,火狐；
+    var wrap=document.querySelector('#wrap');
+    var first=document.querySelector('#first');
+    var body=document.querySelectorAll('body')[0];
+
+   /* wrap.onclick= function () {
+        alert('我是wrap被点击');
+    };
+    first.onclick= function () {
+       alert("我是first被点击触发的函数");
+    };
+    body.onclick= function () {
+        alert('我是body被点击了');
+    }*/
+//阻止事件冒泡的方式练习：
+    wrap.onclick= function (e) {
+        var ev=e||window.event;
+        ev.stopPropagation();
+        alert('我是wrap被点击');
+    };
+    first.onclick= function (e) {
+        var ev=e||window.event;
+       // ev.cancelBubble=true;//ie浏览器的阻止冒泡事件写法；
+        //ev.stopPropagation();//现代浏览器的阻止冒泡事件的写法；
+        //现代浏览器与ie浏览器阻止事件冒泡的兼容性写法：
+        if(ev.stopPropagation){
+            ev.stopPropagation();
+        }else{
+            ev.cancelBubble=true;
+        };
+        /*//错误的兼容写法：
+        //原因：1.首先现代浏览器虽然已经开始兼容ie写法，但是有一部分老的浏览器没有cancel Bubble这个属性；
+        //一旦事件对象中不存在这个属性，那么转换为Boolean的过程中就是false，也就是判断存不存在这个函数这件事本身就是一个false的Boolean值，无法再继续判断函数是否存在;
+
+        if(ev.cancelBubble){
+            ev.cancelBubble=true;
+        }else{
+            ev.stopPropagation();
+        }*/
+        alert("我是first被点击触发的函数");
+    };
+    body.onclick= function () {
+        alert('我是body被点击了');
+    }
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

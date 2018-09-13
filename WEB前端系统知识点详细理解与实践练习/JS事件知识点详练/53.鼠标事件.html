@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>mouseEvent</title>
+    <style>
+        #wrap{
+            width: 100px;
+            heigth:100px;
+            border: 1px solid red;
+            background-color: green;
+
+        }
+    </style>
+</head>
+<body>
+      <div id="wrap"><br/><br/><br/>a<br/><br/><br/><br/></div>
+</body>
+<script>
+    //事件分为两大事件：鼠标事件和键盘事件，如果是手机的话还有触摸事件；
+    //鼠标事件有：
+    //1.点击事件:onclik；
+    //2.滚轮事件：onMouseWheel
+    //3,右键事件：oncontextmenu
+    //4.鼠标左键按下事件：onmousedown
+    //5.鼠标左键按起事件：onmouseup
+    //6.鼠标移动事件：onmousemove;
+    var wrap=document.querySelector('#wrap');
+    //注意：所有的事件都是有事件对象的；
+    //wrap.onclick= function (e) {//一定要知道函数相当于赋给wrap标签的一个值；
+    // 添加了什么函数功能，在这个标签里的样式中就会有这个函数显示，其他函数均显示为null；
+    // 这些函数之所以可用是因为系统中已经定义好了的属性；在火狐浏览器控制台中可以查看；
+    //    var ev=e||window.event;
+
+   // }
+    //鼠标的滚轮事件；
+    /*wrap.onmousewheel=function() {//滚轮事件是给wrap标签的，至于在wrap上进行滚动才有效果，事件给谁谁响应；
+        console.log('ii');
+    }*/
+    //右键事件：
+    /*wrap.oncontextmenu= function (e) {
+        var ev=e||window.event;
+        console.log('123');
+        //取消默认事件，防止点击右键时系统的菜单默认弹出，影响事件响应效果；
+        return false;
+    }*/
+    //左键按下事件
+   /*wrap.onmousedown= function () {
+        console.log('左键按下了');
+    }*/
+    //左键抬起事件
+   /* wrap.onmouseup= function () {
+        console.log('抬起左键响应你');
+    }*/
+    //鼠标移动事件
+    /*wrap.onmousemove= function () {
+        console.log('移动了a');
+    }*/
+
+</script>
+</html>

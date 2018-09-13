@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>组织默认事件</title>
+    <style>
+        #wrap{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+        <a href="http://www.baidu.com">进入百度</a>
+        <div id="wrap"></div>
+</body>
+<script>
+        /*var a=document.querySelectorAll('a')[0];
+        //阻止系统默认事件的两种方法：
+        // 1.IE：return false;  2.现代浏览器：获得时间俺对象然后事件对象.preventDefault();
+
+        a.onclick= function (e) {
+            alert('点击');
+            //添加阻止事件不让他跳转百度
+            //1.IE：IE8及其以下的版本的写法
+            //return false;
+
+
+            //2.现代浏览器的写法:它需要先获得事件对象；
+            var ev=e||window.event;//用于获得事件对象；
+            ev.preventDefault();//阻止事件对象的默认事件；
+
+        }*/
+
+    //
+    var wrap=document.querySelector('#wrap');
+    wrap.oncontextmenu= function () {
+        //没有下面的阻止默认事件的false语句，点击右键会默认弹出系统自带的右键菜单。
+        //加上下面的阻止语句后，点击右键就不会有菜单弹出’
+       return false;
+    }
+
+
+</script>
+</html>

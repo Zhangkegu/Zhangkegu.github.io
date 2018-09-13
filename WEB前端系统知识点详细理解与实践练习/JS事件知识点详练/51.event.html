@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件对象所对应的坐标</title>
+    <style media="screen">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 100px;
+            height:100px;
+            background-color: red;
+        }
+        #dad{
+            width: 400px;
+            height: 400px;
+            background-color: #808089;
+            margin: 100px;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+      <div id="dad">
+          <div id="wrap"></div>
+      </div>
+
+
+</body>
+<script>
+    //事件对象的作用：位置的获得可以作一些小游戏或者小动画之类的东西
+    //1.可以获得和哪个键结合的true值；比如，按住Alt键点击div块就能点开console中的事件获得AltKey的值从false变成true;
+    // 按住Ctrl键点击div块就能获得CtrlKey的值从false变成true；
+    //2,获得点击所在的位置；
+    //3,获得点击所对应的标签；
+    var wrap=document.querySelector('#wrap');
+    wrap.onclick= function (e) {
+        console.log(e);
+        //1，浏览器兼容
+        //形参对象是针对现代浏览器的
+        //IE浏览器不能通过形参来获得事件对象；它是通过window.even来获得事件对象的；
+        //console.log(window.event);
+        //或语法返回值为真的值，不是true和false;
+        var ev=e||window.event;
+        console.log(ev);
+        //2,事件对象点击所在位置；
+        //client X和client Y是针对于浏览器视窗而言的距离，不是针对父级标签边框的距离；
+      // console.log("clientX:"+ev.clientX+"clientY:"+ev.clientY);
+        //3,offsetX和offsetY：是相对于自身而言的距离边框位置
+        //console.log("offsetX:"+ev.offsetX+'<br/>'+"offsetY:"+ev.offsetY);
+        //4,screenX和screenY;是相对于显示屏而言的距离；不管浏览器挪动到显示屏的哪个位置，它的长度都是距离显示屏的边框计算的；
+        //console.log("screenX:"+ev.screenX+' '+"screenY:"+ev.screenY);
+       //5.点击所对应的标签；
+        console.log(ev.target);
+
+    }
+</script>
+</html>es
