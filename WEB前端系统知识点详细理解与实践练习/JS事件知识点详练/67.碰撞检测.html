@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>矩形碰撞</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #first{
+            width: 100px;
+            height:100px;
+            background-color: green;
+            position: absolute;
+
+        }
+        #second{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            left: 300px;
+            top: 300px;
+        }
+    </style>
+</head>
+<body>
+     <div id="first"></div>
+     <div id="second"></div>
+</body>
+<script src="js/collision.js"></script>
+<script>
+    var first=document.querySelector('#first');
+    var second=document.querySelector('#second');
+
+    //碰撞检测;难点：通用性，即可封装传参，这是函数回掉的使用.一般用于封装；
+   /*function collision(){
+        //左右情况检测
+        var minX=second.offsetLeft-first.offsetWidth;
+        var maxX=second.offsetLeft+second.offsetWidth;
+        var minY=second.offsetTop-first.offsetHeight;
+        var maxY=second.offsetTop+second.offsetHeight;
+        if(first.offsetLeft>=minX && first.offsetLeft<=maxX && first.offsetTop>=minY && first.offsetTop<=maxY){
+            second.style.backgroudColor='red';
+        }else{
+            second.style.backgroundColor='blue';
+        }
+    }
+
+    //first块移动到盒子二;
+   first.onmousedown= function (e) {
+         var ev=e||window.event;
+        var current_x=ev.offsetX;//相对自身的宽
+        var current_y=ev.offsetY;
+        document.onmousemove= function (e) {
+            var ev=e||window.event;
+            var off_x=ev.clientX;
+            var off_y=ev.clientY;
+            first.style.left=off_x-current_x+'px';
+            first.style.top=off_y-current_y+'px';
+            collision();
+        };
+        document.onmouseup= function () {
+            document.onmousemove=null;
+        }
+
+    };*/
+    move(first,second, function () {
+        //碰撞了
+        first.style.background='gold';
+        second.style.background='red';
+    }, function () {
+        //没碰撞
+
+        first.style.background='green';
+        second.style.background='blue';
+    });
+
+
+
+    //作业：做一个圆形碰撞；判断两个圆心之间的距离；
+</script>
+</html>

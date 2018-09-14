@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+    * 重力事件：deviceEmotion
+    * 事件对象属性名：
+    * 1，event.accelaration:x,y,z设备在x,y,z方向上的移动加速度值；
+    * 2，event.accelarationIncludingGravity:x,y,z：考虑了重力加速度后，设备在x,y,z方向上的以哦对那个加速度值（在z轴上添加了9.8）；
+    * 这个用到的最多，比如摇一摇功能；
+    * 3，event.rotationRate:alpha,beta,gamma:设备绕x,y,z轴旋转的角度（相对之前某个瞬间值的差值事件比，际变化速率，一旦静止即为0）；
+    *
+    *
+    * */
+
+
+    window.addEventListener('devicemotion',motionEvent,false);
+    function motionEvent() {
+        if(event.rotationRate!=null){
+            var accelerationX=Math.ceil(event.acceleration.x);
+            var accelerationY=Math.ceil(event.acceleration.y);
+            var accelerationZ=Math.ceil(event.acceleration.z);
+            //跟重力相关的三个方向的速度值
+            var accGravityX=Math.ceil(event.accelerationIncludingGravity.x);
+            var accGravityY=Math.ceil(event.accelerationIncludingGravity.y);
+            var accGravityZ=Math.ceil(event.accelerationIncludingGravity.z);
+
+            //alpha beta gamma  旋转速率，静止为0；
+            var rotationAlpha=Math.ceil(event.rotationRate.alpha);
+            var rotationBeta=Math.ceil(event.rotationRate.beta);
+            var rotationGamma=Math.ceil(event.rotationRate.gamma);
+        }
+    }
+
+
+
+</script>
+</html>

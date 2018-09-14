@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>缩放</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #wrap{
+            width:300px;
+            height: 300px;
+            background: gold;
+            margin: 40px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+
+</body>
+<script src="touch.min.js" charset="utf-8"></script>
+<script>
+    //1.缩放比例：假设最初状态为300px,第一次放大1.2倍，应该是360px,
+    // 第二次放大时是针对于360px进行的放大；即在前一次的基础上进行的放大，而没有回到初始值；
+    //scale：每次开始比例都是1；
+    //transform:每次都是针对于最初值进行的变化；
+    //第二次的scale*第一次的scale；
+    var wrap=document.querySelector('#wrap');
+    var last_scale=1;
+    touch.on(wrap,'pinch',function (event){
+        var scale=event.scale;
+        var newScale=last_scale;
+        if (event.fingerStatus=='end'){
+            last_scale=newScale;
+        }
+        wrap.style.transform='scale('+newScale+')';
+    });//必须在手机上进行测试；
+</script>
+</html>

@@ -21,7 +21,7 @@ function wheel(callBack) {
            callBack(down);
         }, false);
     } else if(str.indexOf('Firefox')==150){
-        window.onMouseWheel = function (e) {
+        window.onmousewheel = function (e) {
             var ev = e || window.event;
             if (ev.wheelDelta< 0) {
                 down = true;

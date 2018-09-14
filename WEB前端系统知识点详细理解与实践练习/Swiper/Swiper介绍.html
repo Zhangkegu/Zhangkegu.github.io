@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swiper介绍</title>
+    <link rel="stylesheet" href="swiper-4.3.5.min.css">
+    <script src="swiper-4.3.5.min.js" charset="utf-8"></script>
+    <style>
+        .swiper-wrap{
+            width: 220px;
+            height: 380px;
+            border:2px solid peru;
+            background: red;
+        }
+        .swiper-active{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <!--必须设定规定的类名,即类名前面要有‘swiper-’这个前提类名-->
+    <div class="swiper-container swiper-wrap">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide swiper-active">
+                <img src="image/6.jpg" alt="">
+            </div>
+
+            <div class="swiper-slide swiper-active">
+                <img src="image/5.jpg" alt="">
+            </div>
+
+            <div class="swiper-slide swiper-active">
+                <img src="image/3.jpg" alt="">
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+<script>
+    /*mySwiper =new Swiper('swiper-container',function () {
+        autoplay:5000;
+    })*/
+    var mySwiper = new Swiper ('.swiper-container', {
+      pagination: '.swiper-pagination',
+      autoplay: 5000,
+      loop: true,
+      observer:true,//修改swiper自己或子元素时，自动初始化swiper
+      observeParents:true,//修改swiper的父元素时，自动初始化swiper
+})
+</script>
+</html>

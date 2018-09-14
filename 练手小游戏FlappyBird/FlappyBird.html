@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>张刻骨的FlappyBird小游戏哈</title>
+	<style>
+	    @-webkit-keyframes fly{
+	    	0%{
+	    		-webkit-transform:translate3d(0,0,0);
+	    		-ms-transform:translate3d(0,0,0);
+	    		-o-transform:translate3d(0,0,0);
+	    		transform:translate3d(0,0,0);
+	    	}
+	    	100%{
+	    		-webkit-transform:translate3d(0,30px,0);
+	    		-ms-transform:translate3d(0,30px,0);
+	    		-o-transform:translate3d(0,30px,0);
+	    		transform:translate3d(0,30px,0);
+	    	}
+	    }
+	    @keyframes fly{
+	    	0%{
+	    		-webkit-transform:translate3d(0,0,0);
+	    		-ms-transform:translate3d(0,0,0);
+	    		-o-transform:translate3d(0,0,0);
+	    		transform:translate3d(0,0,0);
+	    	}
+	    	100%{
+	    		-webkit-transform:translate3d(0,30px,0);
+	    		-ms-transform:translate3d(0,30px,0);
+	    		-o-transform:translate3d(0,30px,0);
+	    		transform:translate3d(0,30px,0);
+	    	}
+	    }
+	    @-webkit-keyframes birdMove{
+	    	0%{
+	    		background:url("img/bird0.png");
+	    	}
+	    	100%{
+	    		background:url("img/bird1.png");
+	    	}
+	    }
+	    @keyframes birdMove{
+	    	0%{
+	    		background:url("img/bird0.png");
+	    	}
+	    	100%{
+	    		background:url("img/bird1.png");
+	    	}
+	    }
+	    @-webkit-keyframes bannerMove{
+	    	0%{
+	    		-webkit-transform:translate3d(0,0,0);
+	    		-ms-transform:translate3d(0,0,0);
+	    		-o-transform:translate3d(0,0,0);
+	    		transform:translate3d(0,0,0);
+	    	}
+	    	100%{
+	    		-webkit-transform:translate3d(-343px,0,0);
+	    		-ms-transform:translate3d(-343px,0,0);
+	    		-o-transform:translate3d(-343px,0,0);
+	    		transform:translate3d(-343px,0,0);
+	    	}
+	    }
+	    @keyframes bannerMove{
+	    	0%{
+	    		-webkit-transform:translate3d(0,0,0);
+	    		-ms-transform:translate3d(0,0,0);
+	    		-o-transform:translate3d(0,0,0);
+	    		transform:translate3d(0,0,0);
+	    	}
+	    	100%{
+	    		-webkit-transform:translate3d(-343px,0,0);
+	    		-ms-transform:translate3d(-343px,0,0);
+	    		-o-transform:translate3d(-343px,0,0);
+	    		transform:translate3d(-343px,0,0);
+	    	}
+	    }
+		#wrap{
+			width:343px;
+			height:480px;
+			background: url("img/bg.jpg");
+			position:relative;
+			margin:50px auto;
+			overflow:hidden;
+		}
+		#beginScore{
+			width:28px;
+			height:39px;
+			background:url("img/0.jpg");
+			position:absolute;left:50%;
+			top:50px;
+			-webkit-transform:translate3d(-50%,0,0);
+			-ms-transform:translate3d(-50%,0,0);
+			-o-transform:translate3d(-50%,0,0);
+			transform:translate3d(-50%,0,0);
+		}
+		#title{
+			position:absolute;
+			left:50px;
+			top:150px;
+			-webkit-animation:"fly" 1s infinite alternate;
+			-ms-animation:"fly" 1s infinite alternate;
+			-o-animation:"fly" 1s infinite alternate;
+			animation:"fly" 1s infinite alternate;
+		}
+		#beginBird{
+			background-image: url("img/bird0.png");
+			width:40px;
+			height:26px;
+			position:absolute;
+			right:10px;
+			top:20px;
+			-webkit-animation:"birdMove" 1s infinite alternate;
+			-ms-animation:"birdMove" 1s infinite alternate;
+			-o-animation:"birdMove" 1s infinite alternate;
+			animation:"birdMove" 1s infinite alternate;
+		}
+        #beginBtn{
+        	width:85px;
+        	height:29px;
+        	background:url("img/start.jpg");
+        	position:absolute;
+        	left:50%;
+        	top:300px;
+        	-webkit-transform:translate3d(-50%,0,0);
+			-ms-transform:translate3d(-50%,0,0);
+			-o-transform:translate3d(-50%,0,0);
+			transform:translate3d(-50%,0,0);
+        }
+        #banner{
+        	background:url("img/banner.jpg");
+        	width:686px;
+        	height:14px;
+        	position:absolute;
+        	bottom:43px;
+        	-webkit-animation:"bannerMove" 3s linear infinite ;
+			-ms-animation:"bannerMove" 3s linear infinite ;
+			-o-animation:"bannerMove" 3s linear infinite ;
+			animation:"bannerMove" 3s linear infinite ;
+        }
+        #bird{
+        	width:40px;
+        	height:30px;
+            position:absolute;
+            left:30px;
+            top:30%;
+            display:none;
+        }
+        .birdUp{
+        	background:url("img/up_bird0.png") no-repeat;
+        }
+        .birdDown{
+            background:url("img/down_bird0.png") no-repeat;
+        }
+        .duct{
+        	height:423px;
+        	width:62px;
+        	position:absolute;
+        	left:343px;
+        }
+        .upduct{
+        	height:150px;
+        	width:62px;
+        	background:url("img/up_mod.png") repeat-y;
+        	position:relative;
+        }
+        .upduct img{
+        	position:absolute;
+        	bottom:0;
+        }
+        .downduct{
+        	height:100px;
+        	width:62px;
+        	background: url("img/down_mod.png") repeat-y;
+        	position:absolute;
+        	bottom:0;
+        }
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="beginScore"></div>
+		<div id="title">
+			<img src="./img/head.jpg" alt=""><div id="beginBird"></div>
+		</div>
+		<div id="beginBtn"></div>
+		<div id="banner"></div>
+		<div id="bird" class="bird_down"></div>
+	</div>
+</body>
+<script type="text/javascript">
+	var beginBtn=document.getElementById("beginBtn");
+	var title=document.getElementById("title");
+	var beginScore=document.getElementById("beginScore");
+    var bird=document.getElementById("bird");
+    var wrap=document.getElementById("wrap");
+    var y=2;
+    //点击开始按钮，游戏开始
+    function gameBegin(){
+    	beginBtn.onclick=function(){
+        beginScore.style.display="none";
+        title.style.display="none";
+        this.style.display="none";
+        bird.style.display="block";
+        birdMove(bird);
+        tapWrap();
+        creatDuct();
+	}
+}
+	function birdMove(bird){
+		var offTop=bird.offsetTop;
+        var timer = setInterval(function(){
+        	offTop+=y;
+        	y+=0.5;
+        	//下落时先加速，后匀速
+        	if(y>=6){
+        		y=6;
+        	}
+        	//往上往下飞，鸟头部的朝向
+        	if(y<0){
+        		bird.className="birdUp";
+        	}else{
+        		bird.className="birdDown";
+        	}
+        	//小鸟下落至草坪滚动条停止
+        	if(offTop>=480-87){
+                offTop=480-87;
+                clearInterval(timer);
+        	}
+        	bird.style.top=offTop+"px";
+        },20);
+	}
+	//点击页面，小鸟往上飞的位移
+	function tapWrap(){
+		wrap.onclick=function(){
+           y=-6;
+		}
+	}
+     //上下管道的最大最小值
+	function random(min,max){
+		return parseInt(Math.random()*(max-min)+(min+1));
+	}
+	//动态添加管道，首先需要添加随机长度的上下管道，但中间的距离一定
+	function creatDuct(){
+		var timer=setInterval(function(){
+			//先把上下管道整体包起来，有利于后面管道的移动
+			var duct=document.createElement("div");
+			duct.className="duct";
+			wrap.appendChild(duct);
+           //添加上管道
+			var up=document.createElement("div");
+			up.className='upduct';
+			//上管道的随机范围
+			up.style.height=random(60,203)+"px";
+			duct.appendChild(up);
+			var upImg=document.createElement("img");
+			upImg.src="img/up_pipe.png";
+			up.appendChild(upImg);
+            //添加下管道
+			var down=document.createElement("div");
+			down.className="downduct";
+			//下管道的随机范围
+			down.style.height=300-up.offsetHeight+"px";
+			duct.appendChild(down);
+			var downImg=document.createElement("img");
+			downImg.src="img/down_pipe.png";
+			down.appendChild(downImg);
+			//让管道移动
+            ductMove(duct);
+            //判断小鸟是否撞管道
+            collision(bird,up,upImg,down,downImg,function(){
+            	clearInterval(setInterval(function(){
+                     offLeft-=1;
+                    duct.style.left=offLeft+"px";
+		        },1));
+		        clearInterval(timer);
+		        alert("哦霍，你死了");}); 
+		},3000);  
+	}
+	//碰撞管道
+    function collision(bird,up,upImg,down,downImg,rightCallBack){
+         	//上面柱子的碰撞范围(以管道口的宽度为准)
+            var minUp_X=upImg.offsetLeft-bird.offsetWidth;
+            var maxUp_X=upImg.offsetLeft+upImg.offsetWidth;
+            var minUp_Y=up.offsetTop-bird.offsetHeight;
+            var maxUp_Y=upImg.offsetTop+upImg.offsetHeight;
+            //下面柱子的碰撞范围（以管道口的宽度为准）
+            var minDown_X=downImg.offsetLeft-bird.offsetWidth;
+            var maxDown_X=downImg.offsetLeft+downImg.offsetWidth;
+            var minDown_Y=downImg.offsetTop-bird.offsetHeight;
+            var maxDown_Y=down.offsetTop+down.offsetHeight;
+            if((bird.offsetLeft>=minDown_X&&bird.offsetLeft<=maxUp_X&&
+            	bird.offsetTop>=minUp_Y&&bird.offsetTop<=maxUp_Y)||
+            	(bird.offsetLeft>=minDown_X&&bird.offsetLeft<=maxDown_X&&
+            	bird.offsetTop>=minDown_Y&&bird.offsetTop<=maxDown_Y)){
+                //判断回调函数是否存在
+                if(rightCallBack){
+                	rightCallBack();
+                }
+            }
+         }
+	//管道的移动速度
+	function ductMove(duct){
+		var offLeft=duct.offsetLeft;
+		duct.move=setInterval(function(){
+            offLeft-=1;
+            duct.style.left=offLeft+"px";
+		},1);
+	}   
+    gameBegin();
+</script>s
+</html>

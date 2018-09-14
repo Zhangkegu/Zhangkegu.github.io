@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转事件</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+    设备方向：
+    手机方向：肖像模式，旋转横向模式
+    事件名：orientationChange
+    条件：必须真机测试或手机模拟器测试
+    属性：window.orientation=0;代表肖像模式
+         window.orientation=90;代表左旋转横向模式
+         window.orientation=-90;代表右旋转横向模式
+    */
+
+    function orientationEvent(event){
+        event.preventDefault();
+        console.log(event);//查看事件对象；
+
+        //手势操作一般用于图片的放大缩小和旋转的操作；
+        switch(window.orientation==0){
+            case 0:
+                alert('肖像模式');
+                break;
+            case 90:
+                alert('左旋转模式');
+                break;
+            case -90:
+                alert('右旋转模式');
+                break;
+            default:
+        }
+    }
+    window.addEventListener('orientationChange',orientationEvent,false);
+
+
+
+</script>
+</html>

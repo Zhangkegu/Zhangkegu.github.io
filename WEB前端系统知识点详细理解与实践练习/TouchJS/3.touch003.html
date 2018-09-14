@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #wrap{
+            width:300px;
+            height: 300px;
+            background: green;
+            margin: 40px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+</body>
+<script src="touch.min.js" charset="utf-8"></script>
+<script>
+    //我们的浏览器目前只能测试单指旋转，所以在写这种测试程序时一定要判断是否为单指旋转；
+   //通过rotate属性进行旋转；
+    var wrap=document.querySelector('#wrap');
+    var lastDeg=0;
+    //判断是否为单指旋转，执行函数使刚点击的那一刻，允许单指旋转；
+    touch.on('#wrap','touchstart',function (event) {
+        event.startRotate();//允许单指操作的语句；
+        event.preventDefault();
+    });
+
+    touch.on('#wrap','rotate',function (event) {
+        event.preventDefault();
+        //旋转角度
+        var deg=event.rotation;
+        if(event.fingerStatus='end'){
+            lastDeg=deg;//把上一次的旋转角度赋值给当前的旋转初始值，保证第二次旋转是在第一次的基础上进行的；
+        }
+        wrap.style.transform='rotate('+deg+'deg)';
+
+    });
+
+    //transform是针对于对象的最初始状态的位置；
+    //rotation是旋转角度的大小
+</script>
+</html>

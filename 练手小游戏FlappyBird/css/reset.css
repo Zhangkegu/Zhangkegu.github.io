@@ -1,0 +1,11 @@
+html,body,ul,div,span,object,p,em,img,pre,cite,code,strong,lable,tr,th,td,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent;}
+h1,h2,h3,h4,h5,h6,em,i{font-style:normal;}
+address,caption,cite,code,dfn,th,var{font-style: normal;font-weight: normal;}
+ul,ol,li{list-style-type: none;}
+input{padding-top:0;padding-bottom: 0;font-family: SimSun;}
+select,input,textarea{font-size:12px;margin:0;}
+input[type="text"],input[type="password"],textarea{outline-style: none;}
+textarea{resize: none;}
+table{border-collapse: collapse;}
+a:hover{text-decoration:none;}
+a{text-decoration:none;outline:0;}

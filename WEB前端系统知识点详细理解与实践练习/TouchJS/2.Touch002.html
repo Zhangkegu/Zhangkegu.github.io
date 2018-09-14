@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Touch</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #wrap{
+            width:300px;
+            height: 300px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+</body>
+<script src="touch.min.js" charset="utf-8"></script>
+<script>
+    /*touch.on('#wrap','tap',function (event) {
+        event.preventDefault();
+        //百度手势提供的相关属性
+        //1.点击所在的位置：event.position:
+        // 它提供的坐标信息是相对于视窗而言的，有x和y两个值；
+        console.log(event.position);
+        console.log(event.position.x);//获得x轴坐标
+        console.log(event.position.y);//获得y轴坐标
+        console.log(event.x);
+    });*/
+
+
+    /*
+    //这个distance.x和distance.y多用于拖拽之类的事件中定位；
+    touch.on('#wrap','tap drag',function (event) {
+        event.preventDefault();
+        console.log('x:'+event.x  );//这个x 也叫distance.x，是X轴方向上两点之间的偏移量；
+        console.log('  y:'+event.y);//这个y 也叫distance.y，是y轴方向上两点之间的偏移量；
+    });*/
+
+
+
+    //拖拽属性drag和event.x和event.y进行结合拖拽屏幕的例子
+    //注意：transform是针对于标签最初是的状态
+    var wrap=document.querySelector('#wrap');
+    var disx=disy=0;
+    var last_x=last_y=0;
+    touch.on('#wrap','drag',function (event) {
+        event.preventDefault();
+       disx=event.x+last_x;
+       disy=event.y+last_y;
+        wrap.style.transform='translate3d('+disx+'px,'+disy+'px,0)';
+    });
+    //要想让第二次和以后的每次拖拽标签都不会自动回到初始位置应该把上一次拖拽后的位置加到初始位置上，即执行如下函数；
+    //用到的属性就是dragend:拖拽结束时的属性
+    touch.on('#wrap',"dragend",function (event) {
+        event.preventDefault();
+        last_x=disx;//把上一次拖拽的x轴位置赋值给拖拽结束时的x轴坐标，抱枕下一次拖拽在上一次位置处开始拖拽
+        last_y=disy;
+    });
+
+
+</script>
+</html>

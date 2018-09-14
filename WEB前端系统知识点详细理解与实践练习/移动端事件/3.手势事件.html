@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gesture</title>
+    <meta name="viewPort" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <style>
+        #wrap{
+            width: 300px;
+            height: 300px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+     <div id="wrap"></div>
+</body>
+<script>
+    //手势事件包括一下几种：1，gesturestart:当一个手指已经按在屏幕上面，另一个手指有触摸屏幕时触发；
+    //2，gesturechange:当触摸屏幕的任何一个手指的位置发生变化时触发
+    //3，gestureend：当任何手指从屏幕上移开时触发
+
+    //手势的常用属性：1，rotation:表示手指变化引起的旋转角度，负值表示逆时针旋转，正值表示顺时针旋转（该值从零开始）；
+    // 2，scale：表示两个手指间距的变化（例如向内收缩会缩短距离）；这个值从1开始，并随距离拉大而增长，随距离缩减而减小；
+
+    var wrap=document.querySelector('#wrap');
+    function gestureEvent(event){
+        event.preventDefault();
+        console.log(event);//查看事件对象；
+
+        //手势操作一般用于图片的放大缩小和旋转的操作；
+        switch(event.type){
+            case 'gesturestart':
+                wrap.innerHTML='gesturestart:rotation:'+event.rotation+';scale'+event.scale;
+                break;
+            case 'gestureend':
+                wrap.innerHTML='gestureend:rotation:'+event.rotation+';scale'+event.scale;
+                break;
+            case 'gesturechange':
+                wrap.innerHTML='gesturechange:rotation:'+event.rotation+';scale'+event.scale;
+                break;
+            default:
+        }
+    }
+    wrap.addEventListener('gesturestart', gestureEvent,false);
+    wrap.addEventListener('gesturechange', gestureEvent,false);
+    wrap.addEventListener('gestureend', gestureEvent,false);
+
+</script>
+</html>

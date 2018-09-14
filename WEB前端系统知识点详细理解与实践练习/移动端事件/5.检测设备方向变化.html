@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手机方向</title>
+    <style>
+        #wrap{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            backgound:gold;
+        }
+    </style>
+</head>
+<body>
+     <div id="wrap"></div>
+
+</body>
+<script>
+    /*
+    * DeviceOrientationEvent
+    * 检测到设备方向变化时在window对象上触发，事件意图是告知开发人员设备在空间中的朝向，而不是如何移动，分别有三个值：alpha,beta,gamma;
+    *alpha:从0到360度：正北方向，绕Z轴旋转；
+    *beta:从180度到-180度，绕X轴旋转；
+    *gamma：从90度到-90度，绕Y轴旋转；
+    * */
+
+    var wrap=document.querySelector('#wrap');
+    //判断手机端浏览器是否支持此方法
+    if(window.DeviceOrientationEvent){
+        window.addEventListener('deviceOrientation',orientationEvent,false);
+    }
+    function orientationEvent(event) {
+        //console.log(event.alpha);//打印事件的alpha值，检测用手机；
+        wrap.style.webkitTransform='rotate('+ -Math.round(event.alpha)+'deg';
+    }
+
+
+
+</script>
+</html>

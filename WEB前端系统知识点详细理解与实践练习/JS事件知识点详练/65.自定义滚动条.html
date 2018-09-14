@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>自定义滚动条</title>
+    <style>
+        #wrap{
+            margin: 10px auto;
+            width: 300px;
+            height: 400px;
+            border: 1px solid red;
+            borer-radius:10px;
+            position: relative;
+            overflow: hidden;
+        }
+        #content{
+            width:260px;
+            position: absolute;
+            top:0;
+            left: 10px;
+        }
+        #slider{
+            width: 20px;
+            height: 100%;
+            background-color: greenyellow;
+            border-radius: 10px;
+            position: absolute;
+            right: 0;
+        }
+        #scroll{
+            width: 100%;
+            height: 100px;
+            border-radius: 10px;
+            background-color: goldenrod;
+            position: absolute;
+
+        }
+
+    </style>
+</head>
+<body>
+
+<!--1.布局-->
+<!--wrap代表显示区域-->
+     <div id="wrap">
+         <div id="content">每当万家灯火夜静阑珊的时候，忙碌了一天的我，卸下满身心的疲惫，关上门窗，轻阻外界的一切纷扰喧嚣，摈弃人与人之间的尔虞我诈，褪尽浮华烦躁，在静谧的夜晚，不恋红尘似锦，一人，一书，一茶，在茶香，墨香，书香的氤氲缭绕中，悠然听一曲行云流水，任幽婉的琴音缓缓流入心池，在古琴悠悠中，阅一卷墨香，抒一笺眷恋，让尘心相守于音乐而浅醉，置放于书卷而芬芳。
+
+             腹有诗书气自华，最是书香能致远。喜字的我，爱静静品书香之美，在字字生香的书卷里，缱绻着内心的柔情，淡墨流韵的笔端，迤逦着念想中的浪漫，在美轮美奂的唐诗宋词里徜徉留恋，在岁月的光影里，感恩流年里的每一次相遇，几多风花雪月，几多缠绵缱绻，都在回眸一笑中，用文字编织成记忆永恒，随缕缕清风洒一路心语绵绵，多少相思在浅墨里留香，在月照窗台的柔情里，用一支素笔，
+             润泽一卷旖旎柔暖的人生画卷。
+             每当万家灯火夜静阑珊的时候，忙碌了一天的我，卸下满身心的疲惫，关上门窗，轻阻外界的一切纷扰喧嚣，摈弃人与人之间的尔虞我诈，褪尽浮华烦躁，在静谧的夜晚，不恋红尘似锦，一人，一书，一茶，在茶香，墨香，书香的氤氲缭绕中，悠然听一曲行云流水，任幽婉的琴音缓缓流入心池，在古琴悠悠中，阅一卷墨香，抒一笺眷恋，让尘心相守于音乐而浅醉，置放于书卷而芬芳。
+
+             腹有诗书气自华，最是书香能致远。喜字的我，爱静静品书香之美，在字字生香的书卷里，缱绻着内心的柔情，淡墨流韵的笔端，迤逦着念想中的浪漫，在美轮美奂的唐诗宋词里徜徉留恋，在岁月的光影里，感恩流年里的每一次相遇，几多风花雪月，几多缠绵缱绻，都在回眸一笑中，用文字编织成记忆永恒，随缕缕清风洒一路心语绵绵，多少相思在浅墨里留香，
+             在月照窗台的柔情里，用一支素笔，润泽一卷旖旎柔暖的人生画卷。
+         </div>
+         <div id="slider">
+             <div id="scroll"></div>
+         </div>
+     </div>
+
+</body>
+<script>
+    //获得标签
+    var content=document.querySelector('#content');
+    var slider=document.querySelector('#slider');
+    var scroll=document.querySelector('#scroll');
+    var wrap=document.querySelector('#wrap');
+    var sliderMaxHeight=slider.offsetHeight-scroll.offsetHeight;
+    var y=0;
+    var contentHeight=content.offsetHeight-wrap.offsetHeight;//得到可滚动的文字的高度
+
+
+    //1.点击能够拖拽滚动条
+    function move(){
+        scroll.style.top=y+'px';
+        //文本移动
+        //文字滚动范围/滚动条可滚动范围*滚动条当前滚动到的位置
+        var scale=contentHeight/sliderMaxHeight;
+        var value=y*scale;
+        content.style.top=-value+'px';//向下才是让文字向下滚动，就是让文本content的top值变小的过程
+
+    }
+    scroll.onmousedown= function (e) {
+        var ev=e||window.event;
+        //clientX和Y是针对于浏览器的
+        //offsetX.Y是针对于当前标签的
+        //screenX,Y是针对于窗口的
+        //没有针对于父视图的
+        var current_y=ev.offsetY;
+        document.onmousemove= function (e) {
+            var ev=e||window.event;
+            var offY=ev.clientY;
+            move();
+            y=offY-current_y;
+            if(offY-current_y<=0){//控制不超出顶端；
+                y=0;
+            }else if(offY-current_y>=sliderMaxHeight){
+                y=sliderMaxHeight;
+            }
+            return false;//清空默认事件；
+        }
+        //控制鼠标抬起时滚动条不再跟着移动
+        document.onmouseup=function(){
+            document.onmousemove=null;//让鼠标移动值为空；
+        }
+    }
+
+
+</script>
+</html>

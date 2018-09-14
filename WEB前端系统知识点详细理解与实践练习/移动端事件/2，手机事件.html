@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>触摸事件Touch</title>
+    <!--移动端事件要加下面这句话-->
+    <meta name="viewPort" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <style>
+        #wrap{
+            width: 300px;
+            height:300px;
+            border: 4px solid green;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+
+</body>
+<script type="text/javascript">
+    /*1，手机端事件一般分为触摸事件（touch），手势事件，手机方向，重力感应几个方面*/
+    //Touch触摸事件添加事件名称又四种：touchstart：开始点击, touchmove：点击后开始移动, touchend：手抬起，点击结束, touchcancel：当点击过程中来电话阻止事件时，它由系统来调用； 四种；
+
+   //在移动端的事件对象中包含三个常用的属性：
+    // 1，touches  表示当前跟踪的触摸操作的Touch对象的数组  ，即点击触摸时有多少个touch对象
+    // 2,targetTouches   特定于事件目标的Touch对象的数组   ，即点击触摸时有多少个touch对象
+    // 3,changedTouches;  表示自上次触摸以来发生了什么改变的Touch对象的数组    ，记录发生改变的或当前的是多少touch对象，多用于touchmove事件中；
+
+   //Touch对象包含6个属性:clientX：触摸目标在视口中的X坐标； clientY：触摸目标在视口中的Y坐标 ；identifier ：表示触摸的唯一ID；
+    // screenX：触摸目标在屏幕中的x坐标； screenY：触摸目标在屏幕中的y坐标； target:触摸的DOM节点；
+
+    var wrap=document.querySelector('#wrap');
+    //最好用事件监听的方式给它添加事件
+    function touchEvent(){
+        event.preventDefault();//手机中都是现代浏览器，不能用IE浏览器的return false来及逆行清理系统默认事件
+        //console.log(event);//打印事件，按住就是touchstart事件，抬起就是touchend事件；
+
+        //下面这个程序可以用于写一个类似于桌面鼠标点击移动的效果；
+        //作业：通过手指移动标签
+        if(event.touches.length===1){//先做一个手指是否为一个的判断，在进行各种情况的程序；
+            switch(event.type){
+                case 'touchstart':
+                    console.log('touchstart: '+event.touches[0].clientX);
+                    break;
+                case 'touchend':
+                    console.log('touchend: '+event.changedTouches[0].clientX);
+                    break;
+                case 'touchmove':
+                    console.log('touchmove: '+event.changedTouches[0].clientX);
+                    break;
+                default:
+            }
+        }
+
+    }
+    wrap.addEventListener('touchstart',touchEvent,false);
+    wrap.addEventListener('touchmove',touchEvent,false);
+    wrap.addEventListener('touchend',touchEvent,false);
+    wrap.addEventListener('touchcancel',touchEvent,false);//最后一个事件一般不用自己写，都是系统调用；
+</script>
+</html>

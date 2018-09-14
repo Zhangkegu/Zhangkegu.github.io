@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>touch使用</title>
+    <style>
+        #wrap{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+</body>
+<!--引入touch.js-->
+<script src="touch.min.js" charset="utf-8"></script>
+<script>
+    //在百度可以找到API手册中的touch各种属性；
+    //使用方法；注意：一般适用于手机端，但在电脑上也能使用
+    //第一个参数是ID
+    /*touch.on('#wrap','tap',function () {
+        alert('点击');
+    });*/
+
+    //第二个参数的其他写法
+    /*touch.on('#wrap','tap hold',function () {
+        alert('接受两个事件触发：点击和长按');
+    });*/
+
+    //第三种写法
+    var wrap=document.querySelector('#wrap');
+    touch.on(wrap,'tap',function (event) {
+        event.preventDefault();//添加阻止系统默认事件
+        alert('第一个参数用标签也可以实现功能')
+    });
+    //注意点：
+    //1，建议添加阻止系统默认事件
+
+</script>
+</html>
