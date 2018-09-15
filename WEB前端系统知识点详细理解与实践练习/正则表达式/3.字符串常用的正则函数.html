@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数</title>
+</head>
+<body>
+
+</body>
+<script>
+    //字符串常用的函数有1.replace  2，match 3,search
+    var str='L欧科技NBBBBBBB';
+    var reg=/B/;
+    /*var value=str.replace(reg,'E');//用新的字符串value，把通过正则表达式找到的字符替换成新的字符；
+    console.log(value);*/
+    var value=str.search(reg);
+    console.log(value);//只显示第一个字符的下标，不会显示查到的全部字符下标
+    var  t=str.match(reg);
+    console.log(t);//查到的是数组形式显示它的下标
+
+</script>
+</html>

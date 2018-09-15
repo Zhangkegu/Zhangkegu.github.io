@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QQ登录验证</title>
+</head>
+<body>
+<!--首先要创建一个input 输入框
+     placeholder="这个地方要写的内容";
+-->
+    <div id="wrap">
+        <input type="text" value="" placeholder="请输入验证QQ号码" id="txt">
+        <input type="button" value="验证" id="btn">
+
+    </div>
+</body>
+<script>
+    var input_qq=document.querySelector('#txt');
+    var btn=document.querySelector('#btn');
+
+    //qq号特点：数字【0-9】\d，长度5-11位；
+    btn.onclick=function () {
+        var value=input_qq.value;
+        console.log(value);
+        var reg=/^[0-9]{5,11}$/g;//判断数字长度要给数字加上开头和结尾的符号将验证包在中间才能按正确长度来验证；
+        var judge=reg.test(value);
+        if(judge){
+            alert('您输入的QQ号正确，已通过');
+        }else{
+            alert("您输入的QQ号不正确，正确格式为5到11位的0至9的数字");
+        }
+    }
+</script>
+</html>

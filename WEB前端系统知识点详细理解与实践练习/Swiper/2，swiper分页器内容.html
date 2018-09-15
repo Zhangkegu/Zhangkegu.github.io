@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分页器pagination</title>
+    <link rel="stylesheet" href="swiper-4.3.5.min.css">
+    <script src="swiper-4.3.5.min.js" charset="utf-8"></script>
+    <style>
+        .swiper-mywrap{
+            width: 800px;
+            height: 300px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+     <div class="swiper-container swiper-mywrap">
+         <div class="swiper-wrapper">
+             <div class="swiper-slide">第一页</div>
+             <div class="swiper-slide">第二页</div>
+             <div class="swiper-slide">第三页</div>
+         </div>
+         <div class="swiper-pagination"></div>
+     </div>
+</body>
+<script type="text/javascript">
+    var myswiper=new Swiper('.swiper-container',{
+        pagination:'.swiper-pagination',//分页器
+        paginationType:'custom',
+        
+
+
+    });
+</script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向控制</title>
+    <link rel="stylesheet" href="swiper-4.3.5.min.css">
+    <script src="swiper-4.3.5.min.js" charset="utf-8"></script>
+    <style>
+        .swiper-mywrap{
+            width: 800px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper-container swiper-mywrap" id="swiper1">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">第一页</div>
+            <div class="swiper-slide">第二页</div>
+            <div class="swiper-slide">第三页</div>
+        </div>
+    </div>
+    <div class="swiper-container swiper-mywrap" id="swiper2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">第一页</div>
+            <div class="swiper-slide">第二页</div>
+            <div class="swiper-slide">第三页</div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    var first=new Swiper('#swiper1',{
+
+
+    });
+    var second=new Swiper('#swiper2',{
+
+    });
+    first.params.control=second;//这样就可以互相控制，即双向控制
+    second.params.control=first;
+</script>
+</html>

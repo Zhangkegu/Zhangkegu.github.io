@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="swiper-4.3.5.min.css">
+    <script src="swiper-4.3.5.min.js" charset="utf-8"></script>
+    <style>
+        .swiper-mywrap{
+            width: 800px;
+            height: 300px;
+            border: 1px solid red;
+        }
+        #btn{
+            width: 30px;
+            heihgt:30px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper-container swiper-mywrap">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">第一页</div>
+            <div class="swiper-slide">第二页</div>
+            <div class="swiper-slide">第三页</div>
+        </div>
+    </div>
+    <div id="btn">点击</div>
+</body>
+<script type="text/javascript">
+    var myswiper=new Swiper('.swiper-container',{
+        loop:true,
+        autoplay:2000
+    });
+    var btn=document.querySelector('#btn');
+    btn.onclick=function () {
+        //console.log(myswiper.activeIndex);
+        console.log(myswiper.realIndex);
+    }
+</script>

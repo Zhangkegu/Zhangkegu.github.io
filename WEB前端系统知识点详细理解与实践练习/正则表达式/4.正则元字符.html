@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元字符</title>
+</head>
+<body>
+
+</body>
+<script>
+    //规则一：全局查找：G,含义是；从头查到尾
+    /*var str='lhellol';
+    var reg=/l/g;//g表示全局查找，即查找全部的l字符；
+    var value=str.replace(reg,'m');//正则表达式中有g全局，就会把所有的l都替换成m
+    console.log(value);*/
+
+    //案例：获得某个字符串的所有空格的个数
+   /* var str='蓝 偶 你 好 !';
+    var reg=/ /g;//g是修饰前面的正则表达式的，从头进行查找，知道找不到时显示null，查找结束；
+    var num=0;
+    while (reg.exec(str)){//判断在str中能否找到正则中要找的字符，如果找到，就会是真值true，
+        // 全部找完就会显示null，为假的值false，从而统计有多少个要找的字符；
+        num++;
+    }
+    console.log(num);
+    var value=str.replace(reg,'--');
+    console.log(value);*/
+
+   //规则二：不区分大小写是i；
+    /*var str='hello WORD';
+    var reg=/H/i;//字符串中没有大写的H,如果不加i就会显示false，查不到H字符；
+    var value=reg.test(str);
+    console.log(value);
+    var reg=/o/ig;//不区分大小写全局查找；
+    var value1=str.replace(reg,'萌');
+    console.log(value1);*/
+
+    //规则三：任意字符 '.'
+    /*var str='hello';
+    var reg=/e./g;//任意字符‘.’,就是将e后面那个字符一起执行正则表达式；
+    console.log(str.replace(reg,'嗨'));
+    var str1='hel2elrd';
+    var reg=/e../g;//意思是将所有e后面的两个字符和e一起被执行；
+    console.log(str1.replace(reg,"美");
+
+    */
+    //规则四：0个或者1个？号；
+    //?号:不是它修饰的字符不会被查找，两个字符间的空字符会被查找；
+    /*var str='hello';
+    var reg=/e?/g;
+    console.log(str.replace(reg,'哒'));*/
+
+
+    //规则5：*代表0个或者N个字符；
+    //星号：同样是修饰符号前的那个字符在0次或者N次
+    //var str1='heleelo';
+    //var reg=/e*/g;//检测所有的e和它前后的空字符；
+    //var value=str1.replace(reg,'星');
+    //console.log(value);
+
+
+    //规则六：代表一个或者N个 +：也是修饰前面的字符；
+    /*var str='heeleeeelo';
+    var reg=/e+/g;//所有的e都会被
+    var value=str.replace(reg,'加');
+    console.log(value);*/
+
+    //案例2：
+   /* var str='hello';
+    var reg=/e.+/g;//就是将e字符后面的所有字符都替换掉；
+    var value=str.replace(reg,'案');
+    console.log(value);*/
+   //规则7：重复的范围{}：修饰大括号前面的字符；
+    //{3}代表修饰的字符前面必须有3个字符；
+    //{1，3}代表修饰的字符前面最少有1个字符，最多有3个字符；
+    //{2，}代表修饰的字符前面最少有2个字符，最多N个；
+    /*var str='heeelleo';
+    var reg=/e{3}/g;
+    var value=str.replace(reg,'大');
+    console.log(value);*/
+
+
+    //规则八：或规则：|
+    /*var str='hello';
+    var reg=/h|l|e/g;//表示全局查找h或l或e，这三个字符将全部被找出；
+    var value=str.replace(reg,'换');
+    console.log(value);*/
+
+    //规则九： 或规则：[]：用的比较多
+    //中括号中：空格，逗号，分号等特殊字符也算是或要被替换的内容；
+   /*var str='heW我a好4Rllo，：42你b好';
+    //var reg=/[heo]/g;//中括号里是要被换掉的字符，不允许有其他符号；
+
+    //var  reg=/[a-z]/g;//替换掉所有的小写英文字符；
+
+    //var reg=/[a-zA-Z]/g;//替换掉所有的大小写英文字符；
+
+    //var reg=/[0-9]/g;//替换掉所有的数字；
+    //var reg=/[0-9a-zA-Z]/g;//替换掉所有的数字和大小写字母；
+    var reg=/[\u4e00-\u9fa5]/g;//替换掉所有的汉字；
+    var value=str.replace(reg,'~!');
+    console.log(value);
+
+    //注意：在内存空间中，汉字一般有专门的编码，正则中用的是UTF8编码，
+    // \u4e00-\u9fa5 代表的是第一个汉字到最后一个汉字；*/
+
+
+   //规则十：以什么开头^;
+    /*var str='hello';
+    var reg=/^h/g;//判断是否以h开头的；
+    var value=reg.test(str);//检测字符串是否满足正则表达式：reg;
+    console.log(value);*/
+
+    //规则11：以什么结尾$：
+    /*var str='hello';
+    var reg=/o$/g;//检测字符串是否以o结尾；
+    var value=reg.test(str);
+    console.log(value);*/
+
+    //案例：判断一个字符串是否为6位长度的数字；
+    /*var str='123456';
+    var reg=/^[0-9]{6}$/g;//规则是：字符串为数字，且开头到结尾中间的长度为6，大括号中表示字符串长度；
+    var value=reg.test(str);
+    console.log(value);
+    //注意：要想判断一个字符串的长度，必须加上开头和结尾符号；*/
+
+    //规则12：取反规则^,它要和中括号一起使用,只要在中括号里的^就是取反的意思；[^0-9];
+    /*var str='12&3hhh';
+    var reg=/[^0-9]/g;//检测所有的非数字字符；【^a-z】:所有的非小写字符；
+    var value=str.replace(reg,'数');
+    console.log(value);*/
+
+    //规则13：小括号规则（）:被小括号括起来的就被认为是一个整体字符了；
+    /*var str='hello';
+    var reg=/(he)/g;
+    var value=str.replace(reg,'小');
+    console.log(value);*/
+
+
+//总结：元字符一共三大类：
+    //1.修饰整个正则表达式的内容：g和i;
+    //2，修饰前一个或者前一个小括号括起来的内容：？，+，*，{}；
+    //3，其他类型：.  ,\,[],^开头,结尾$,^取反，（）；
+
+</script>
+</html>

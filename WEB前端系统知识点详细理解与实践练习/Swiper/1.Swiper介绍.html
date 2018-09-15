@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swiper介绍</title>
+    <link rel="stylesheet" href="swiper-4.3.5.min.css">
+    <script src="swiper-4.3.5.min.js" charset="utf-8"></script>
+    <style>
+        .swiper-wrap{
+            width: 620px;
+            height: 380px;
+            border:2px solid peru;
+            background: red;
+        }
+        .swiper-active{
+            text-align:center;
+        }
+        img{
+            width: 250px;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!--必须设定规定的类名,即类名前面要有‘swiper-’这个前提类名-->
+    <div class="swiper-container swiper-wrap">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide swiper-active">
+                <img src="image/6.jpg" alt="">
+            </div>
+
+            <div class="swiper-slide swiper-active">
+                <img src="image/5.jpg" alt="">
+            </div>
+
+            <div class="swiper-slide swiper-active">
+                <img src="image/3.jpg" alt="">
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+<script>
+    /*var mySwiper =new Swiper('swiper-container',{
+        autoplay:5000;
+    })//里面的第二个参数是大括号里面写各种属性，不是函数里面写属性*/
+    //里面的每个元素之间以定要加，逗号；
+    var mySwiper = new Swiper ('.swiper-container', {
+
+        autoplay: 1000,//自动滚动
+        loop:true,
+        autoplayDisableOnInteraction:false,
+        initialSlide:0,//控制初始状态显示哪一个图片或者区域；
+        //direction:'vertical',//表示垂直上下滑动，默认是水平方向滑动：horizontal:水平
+        speed:200,//从他开始滑动开始到结束一共用200ms;
+        autoplayOnlast:true,//自动切换到最后一张时停止切换；
+        grabCursor:true,
+        slidesPerView:3,//一共显示多少个
+        //freeMode:true,//控制滑动时图片不会自动全部滑出，而是跟着鼠标走；
+        //effect:'cube',//滑动图片时是以立方体的视觉效果呈现的；
+        //centerSlide:true,//居中显示
+       // slidesPerGroup:1,//一次滚动多少个
+        //effect:'coverflow',//滑动立体纸片式特效
+        //effect:'flip',//旋转翻页
+        slideToClickedSlide:true,//需要同时显示所有图片才能使用该效果；
+
+
+    });
+
+</script>
+</html>

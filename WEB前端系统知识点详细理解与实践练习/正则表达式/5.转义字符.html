@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则转义字符</title>
+</head>
+<body>
+
+</body>
+<script>
+    //转义字符：斜杆‘\’；
+    //特点：以斜杆‘\’开头的都叫转义字符；
+
+    //斜杆d:匹配一个数字字符，等价于[0-9]
+
+   /* var str='hello 我 1234';
+    //var reg=/\d/g; //‘\d’就相当于[0-9];
+
+    //var reg=/\w/g;//‘\w’就相当于[A-Za-z0-9];
+
+    //var reg=/\D/g;//'\D'相当于[^0-9];
+
+    //var reg=/\W/g;//匹配非单词的字符；
+    var value=str.replace(reg,'转');
+    console.log(value);*/
+
+    //总结：斜杆‘\小写字母’ 和 ‘\大写字母’刚好含义相反
+
+
+    //注意：在普通字符串中，转义字符依然能够使用；
+    var str='\'name\':\'张三\'';//转移字符会使特殊字符在转义字符后面正常打印；
+    //比如打印\,‘’，""等特殊符号时，为了不和使用中的这些符号冲突们可以放在转义字符‘/’之后就剋正常打印符号本身；
+    console.log(str);
+
+</script>
+</html>
