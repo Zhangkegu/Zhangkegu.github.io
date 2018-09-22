@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滑动效果</title>
+</head>
+<body>
+    <div id="wrap">打出溜</div>
+    <input type="button" value="滑动" id="btn">
+</body>
+<script src="jquery-1.11.1.js" charset="utf-8"></script>
+<script>
+    //slideUp()是隐藏效果，slideDown()是展示效果；
+    // 它们也有第二个形参，是函数，即动画完成就执行函数；
+    //slow,fast和normal也可以控制速度；
+    //slideToggle:是用来切换显示和隐藏效果的；
+    $("#wrap").css({
+        width:100,
+        height:100,
+        border:'1px solid gold'
+    });
+
+    var judge=true;
+    $("#btn").click(function () {
+        if(judge==true){
+            $("#wrap").slideUp(300,function () {
+                alert("收起来了");
+            });//滑上去，即隐藏起来,它们也有第二个形参，是函数，即动画完成就执行函数；
+            judge=false;
+        }else {
+            $("#wrap").slideDown(1000,function () {
+                alert('Show Time!');
+            });//滑下来，即展示，里面的数值是用来控制滑动速度的；
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery事件操作</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+     <div id="wrap">
+
+     </div>
+    <div></div>
+</body>
+<script src="jquery-1.11.1.js" charset="utf-8"></script>
+<script>
+    //on 是添加函数，一个on可以添加多个事件；
+   /* var div=$("#wrap");
+    console.log(div[0]);//jQuery是一个数组，要想使用它里面的元素，就要加下标；
+    div.on('click',function () {//jQuery的点击事件等事件处理函数的写法与js不同，需注意；
+       alert('点击');
+    });*/
+
+    //off是删除事件，它是删除所有括号中对应的事件，在下面的例子中是删除了所有click点击事件；；
+   /*var div=$("#wrap");
+   console.log(div[0]);//jQuery是一个数组，要想使用它里面的元素，就要加下标；
+   div.on('click',function () {//jQuery的点击事件等事件处理函数的写法与js不同，需注意；
+       alert('点击');
+   });
+   var div=$("#wrap");
+   console.log(div[0]);//jQuery是一个数组，要想使用它里面的元素，就要加下标；
+   div.on('click',function () {//jQuery的点击事件等事件处理函数的写法与js不同，需注意；
+       alert('点击第二下');
+   });
+   div.off('click');//这样click点击事件就被删除掉了；*/
+
+   //如果jQuery里面包含了多个标签，那么就是都里面的每一个标签都执行相同的操作有相同的函数事件触发；
+
+   /* var divs=$('div');//获得的是所有的div标签；
+    divs.on('click',function () {//给所有的div标签都进行相同的事件处理；
+        alert('两个都能点啦');
+    });*/
+
+   //one函数：只触发一次，触发过以后再触发无效；
+   /* var divs=$('div');
+    divs.one('click',function () {
+        alert('我只能触发一次，每个标签都只能执行一次这个函数，执行过后再触发就无效了；');
+    });*/
+   //ready(function(){});这个函数相当于window.onload=function（）{};的替代品
+//写法是：$(document).ready(function(){});
+
+    //两者之间的区别：
+    //1，window.onload只会执行一次而且只能写一次；
+    //2，$(document).ready(function(){});可以写多次，还可以再js中写；
+
+
+    //click，与on("click",function(){});功能相似，知识on的函数类型写在括号里的函数前面。
+    var divs=$("div");
+    divs.click(function () {
+        alert("在click里面直接写的函数");
+    });
+
+
+</script>
+</html>

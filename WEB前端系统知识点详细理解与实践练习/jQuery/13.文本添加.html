@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本添加</title>
+</head>
+<body>
+
+</body>
+<script src="jquery-1.11.1.js" charset="utf-8"></script>
+<script>
+    var div=$("<div/>");
+    $("body").append(div);//在body 标签中添加div；
+    div.css({
+        width:"200px",
+        height:"200px",
+        background:'red'
+    });
+    //文本设置1：
+    //div.text('这里是文本内容');//向div中添加文本内容的方法；
+
+    //文本设置2：
+    //div.html("<div>内容啊</div>");//向里面添加文本和标签
+
+
+
+
+</script>
+</html>

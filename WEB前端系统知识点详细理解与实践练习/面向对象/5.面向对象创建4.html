@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建</title>
+</head>
+<body>
+    <div id="wrap">1</div>
+</body>
+<script>
+    //工厂模式
+    /*function factory(name) {
+        var obj = {};
+        obj.name = name;
+        return obj;
+
+    }
+    var obj=factory('张三');
+    console.log(obj);*/
+
+    //1，构造函数:为了区分构造函数与普通函数，我们把构造函数的首字母大写；
+    /*function People(name,age) {
+        this.name=name;
+        this.age=age;
+    }
+    //2，使用构造函数；
+    var p=new People('张三','27');
+    p.name='李四';//直接给对象的属性赋值依旧生效；
+    p.age='30';
+    console.log(p);*/
+
+    //this:在函数中谁调用函数，函数内的this就是谁；
+    //在js中全局定义的所有变量都是默认添加为window的属性；
+    /*function test() {
+        console.log(this);
+        console.log('好');
+    };
+    window.test();
+    test();//也可以写window.test();这种方式同样可以调用函数
+    */
+    //再例如：
+    /*var abc=10;//相当于：window.abc=10;
+    console.log(window);//在js中全局定义的所有变量都是默认添加为window的属性；
+    //可以说所有的全局变量都是window的属性；*/
+
+    /*var div=document.querySelector('#wrap');
+    div.onclick=function () {
+        console.log(this);
+    };
+    div.onclick();//此时的this是div调用的，所以指的是div;
+    */
+
+
+
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象原型</title>
+</head>
+<body>
+
+</body>
+<script>
+    //创建面向对象的三种方式：1.new Object 2,{}  3,构造函数，工厂模式
+    //原型：主要针对构造函数
+    //原型一般都用在框架类别里：如：swiper,touchjs;
+    /*function  People(name) {
+        this.name=name;
+    }
+
+    //原型本身就是一个属性，是people的属性之一
+    People.prototype={
+        //原型prototype这里面写新添加的属性
+        age:19,
+        sex:'女'
+    };*/
+    //对象通过构造函数创建，那么就可以添加原型；
+    //对象可以直接调用原型里的属性；prototype就是People的一个原型；
+    /*var p=new People('张三');
+    console.log(p.__proto__);
+    console.log('2:  '+p.sex);
+    console.log('张三'+p.age+'岁');*/
+
+    //原型注意点：
+    //1.所有对象都有原型对象__proto__；
+    //自定义构造函数有原型，原型里有Object的原型；
+    //2,原型中建议添加值属性，建议添加函数类型属性；
+    //3,原型相当于给构造函数添加额外的属性；
+    function  People(name) {
+        this.name=name;
+    }
+
+    People.prototype={
+        move:function(){},
+        fn:function () {}
+    };
+    //原型多添加的属性，在其所对应的构造函数所创建的对象上都存在；
+
+</script>
+</html>

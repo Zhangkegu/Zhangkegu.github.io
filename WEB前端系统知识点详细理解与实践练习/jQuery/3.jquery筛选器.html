@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>筛选器</title>
+</head>
+<body>
+    <li>我是第一</li>
+    <ul>
+        <li>list item 1</li>
+        <li>list item 2</li>
+        <li>list item 3</li>
+        <li>list item 4</li>
+        <li>list item 5</li>
+    </ul>
+    <input type="checkbox" checked="checked">
+    <input type="button" value="" class="btn">
+
+</body>
+<script src="jquery-1.11.1.js" charset="utf-8"></script>
+<script>
+    //筛选器和层级选择器是可以进行混合使用的；
+    //基本筛选器:  :first,所有相同标签名的第一个；
+    // ul li:first,这种写法是指ul标签下的所有li标签中的第一个；
+    /*var lis=$("li:first");
+    console.log(lis);
+    var lis1=$("ul li:first");
+    console.log(lis1);*/
+
+    //筛选器L: :not  表示查找的是，没有被选中的那个标签；
+   /* var input=$('input:not(:checked)');//选中的是没有checked ,即没有被选中的那个input;
+    console.log(input);*/
+
+   //筛选器：  :even
+    /*var lis=$('li:even');//这样筛选的是页面中所有的li标签中的偶数标签；
+    var lis1=$('ul li:even');//这样筛选的是ul标签中所有的li标签中的偶数标签,即：ul中下标为0,2,4的那三个标签；
+    console.log(lis);
+    console.log(lis1);*/
+
+    //筛选器： :odd   奇数选择器；
+    /*var lis=$('ul li:odd');
+    console.log(lis);*/
+
+
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
+    <script src="js/bootstrap.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <!--下拉菜单:
+    divider：分割线
+
+    -->
+    <div class="dropdown">
+        <div class="btn btn-primary" data-toggle="dropdown">
+            菜单按钮
+            <span class="caret"></span>
+        </div>
+        <ul class="dropdown-menu">
+            <li class="dropdown-header">标题</li>
+            <li><a href="#" class="bg-warning">选项一</a></li>
+            <li><a href="#" class="bg-info">选项二</a></li>
+            <li class="divider"></li>
+            <li><a href="#" class="bg-success">选项三</a></li>
+        </ul>
+    </div>
+</body>
+</html>

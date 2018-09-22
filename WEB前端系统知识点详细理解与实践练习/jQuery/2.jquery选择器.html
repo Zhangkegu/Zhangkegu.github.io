@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery的选择器</title>
+</head>
+<body>
+    <div id="wrap">
+        <div class="a"></div>
+    </div>
+    <div class="first">你好</div>
+    <div class="first">兰欧</div>
+    <form action="#">
+        <lable>Name:</lable>
+        <input  name="name" class="first"><hr/>
+        <fieldset>
+            <lable>News letter:</lable>
+            <input name="newsletter" class="second">
+            <input type="text" name="san" class="third">
+        </fieldset>
+
+    </form>
+    <hr/>
+    <input type="text" name="bother" class="bother">
+    <input name="none" class="bother1">
+
+</body>
+<script src="jquery-1.11.1.js" charset="utf-8"></script>
+<script>
+
+    /*var wrap=$('#wrap');//引用jquery的获得方式；
+    console.log(wrap);*/
+
+    //jquery可以同标签名进行获取，他是获得所有的匹配规则的标签；
+    /*var allDiv=$('div');//获得的是所有的div标签
+    console.log(allDiv);*/
+
+    /*var divs=$('.first');//所有calssname为first的div都被找到
+    console.log(divs);*/
+
+    //选择器：*，它的作用是匹配所有的标签；
+    /*var all=$("*");//获得了页面中所有的标签
+    console.log(all);*/
+   //选择器：可以同时获得不同类型的标签；
+   /* var divs=$("#wrap,div.first");
+    console.log(divs);*/
+   //层级选择器：空格 这种写法它可以获得父级标签下的所有子标签，包括子标签里的相同标签，即孙子辈的标签；
+   /* var divs=$("#wrap div");//这样就会只找到wrap里的所有div标签；
+    console.log(divs);*/
+
+   //层级选择器:  >号，是用来获得父级标签的相邻子标签，不能获得孙子辈的标签；
+    /*var inputs=$("form>input");
+    var first_inputs=$("form input");
+
+    console.log(inputs);
+    console.log(first_inputs);*/
+
+    //层级选择器： +  :前面的和后面的标签必须是相邻的，取出来的是后面的标签；
+    /*var value=$('lable+input');
+    console.log(value);*/
+
+    //层级选择器：~  :查找的标签和前面的标签是兄弟关系；
+    /*var value=$('form~input');
+    console.log(value);*/
+
+
+
+
+</script>
+</html>

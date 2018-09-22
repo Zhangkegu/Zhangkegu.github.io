@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性选择器</title>
+</head>
+<body>
+    <div id="wrap"></div>
+    <div class="first"></div>
+    <div class="second"></div>
+</body>
+<script src="jquery-1.11.1.js" charset="utf-8"></script>
+<script>
+    //属性选择器： [attribute] 里面写属性名；
+    /*var div=$("div[id]");
+    var div1=$("div[class]");
+    console.log(div);
+    console.log(div1);*/
+    //属性选择器： [attribute=value] 里面写属性名和值，锁定某一目标
+    var divs=$("div[class=second]");
+    console.log(divs);
+    //属性选择器： [attribute^=value]:字符串中以什么开头的属性
+    //[attribute$=value]  字符串中以什么结尾的属性
+    //[attribute*=value] 包含什么的属性
+
+</script>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>电话号验证</title>
+</head>
+<body>
+    <div id="wrap">
+        <input type="text" value="" id="tel" placeholder="电话号">
+        <input type="button" id="btn" value="验证">
+    </div>
+</body>
+<script>
+    var tel=document.querySelector('#tel');
+    var btn=document.querySelector('#btn');
+    //电话号规则：135，172，170，185，186，手机号11位，除去1和另两位数字作为开头，还剩下8位数字要被限定长度；
+    btn.onclick=function () {
+
+        var value=tel.value;
+        var reg=/^1(35|72|70|50|85|86|83|38)([0-9]){8}$/g;
+        var judge=reg.test(value);
+        if(judge){
+            alert('号码正确');
+        }else{
+            alert('这不是电话号码');
+        }
+        return false;
+    }
+</script>
+</html>

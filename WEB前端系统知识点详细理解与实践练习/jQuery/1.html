@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery介绍</title>
+</head>
+<body>
+    <div id="wrap">你好</div>
+<!--
+<script src='http://libs.baidu.con/jquery/1.12/jquery.min.js'></script>
+本地引入jquery 的方法如下
+<script src="jquery-1.11.1.js" charset="utf-8"></script>-->
+<!--//1.jQuery是通过原生JS所封装的一个库，我们可以直接的使用库里面的函数
+//2.要想学会,首先要先看懂别人的代码；
+//3.API：注释，解释每一个函数和函数中形参的含义，包括返回值；
+//jQuery的作用：适配不同浏览器;
+上面的做法是网站引入，为了减轻服务器的压力还可以选择网络引入：
+CDN：一些网站百度，新浪，阿里，Google提供了一些通过的服务器来存储常用的框架，
+开发者可以直接使用其网站所提供的这些公共库内容，减轻本公司的服务器压力
+ -->
+
+
+</body>
+<script src="jquery-1.11.1.js" charset="utf-8"></script>
+
+<script>
+    //通过jQuery获得标签：$("CSS3选择器");
+    //$("")是有一个返回值的，就是jquery得对象，对象包含数组；
+    //jquery本身就是一个数组对象；
+    //数组得第0个元素就是我们JS原生的标签；
+    /*console.log($('#wrap'));//通过jquery获得标签
+    //数组本身也是一个对象
+    var arr=['hello'];
+    arr.name='a';//数组作为对象。也可以随意在外面添加属性；
+    console.log(arr);*/
+
+    //jquery中的所有函数或属性，必须要通过jquery对象去调用；
+    //$('#wrap'):这是创建一个jquery对象的语句；
+</script>
+</html>

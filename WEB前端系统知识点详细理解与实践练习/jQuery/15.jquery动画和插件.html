@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery动画和插件</title>
+    <style>
+        #wrap{
+            width: 50px;
+            height: 50px;
+            border: 1px solid gold;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="wrap">你好</div>
+    <input type="button" id="btn" value="隐藏"><input type="button" id="btn1" value="展示">
+</body>
+<script src="jquery-1.11.1.js" charset="utf-8"></script>
+<script>
+    //显示：show();隐藏：hide();
+    var wrap=$("#wrap");
+    $("input").css({
+        margin:3
+    });
+
+    $("#btn").click(function () {
+        wrap.hide();
+    });
+    $("#btn1").click(function () {
+        wrap.show();
+    })
+
+</script>
+</html>

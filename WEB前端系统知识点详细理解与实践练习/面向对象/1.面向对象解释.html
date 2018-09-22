@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象创建与介绍</title>
+</head>
+<body>
+    <div id="wrap"></div>
+<!--面向对象是一种思想，是一种对于封装思想的总结。
+主要是为了解决代码重复问题而产生的。例如：函数；-->
+</body>
+<script>
+    //HTML中，所有的标签都是对象；比如：div
+    var div=document.querySelector('#wrap');
+    div.innerHTML='hello';//这就是对象调用属性；某个具体内容称为对象；例如'hello';
+
+    //类是抽象概念，我们自己定义的一个概念，类是没有任何意义的：
+    //对象是由类所产生的具体的某个实例；
+    //都是通过代码先去想象我们需要实现什么功能,这就是创建类的过程；
+
+    function f() {
+        var a=10;
+        var b=10;
+        var c=a+b;
+        console.log(c);
+    };//这个函数的创建就是创建类的过程，单是这个函数是没有任何意义的，只有经过下面的调用才有意义；
+    f();//调用这个函数就是一个具体的案例；
+
+
+</script>
+</html>

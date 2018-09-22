@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML标签过滤</title>
+</head>
+<body>
+    <div id="wrap">
+        <span></span>
+    </div>
+    <span></span>
+</body>
+<script>
+    //查找匹配标签
+    //tag:标签名
+    /*function find(tag) {
+        var reg=new RegExp('<'+tag+'( )?(.)*>','g');
+        var judge=reg.test(document.body.innerHTML);
+        return judge;
+        //console.log(document.body.innerHTML);
+        //console.log(reg);
+    }
+    var value=find('div');//tag形参是div;
+    console.log(value);*/
+    function find(tag,text) {
+        var reg=new RegExp('<'+tag+'( )?(.)*>','g');
+        var judge=reg.test(text);
+        return judge;
+        //console.log(document.body.innerHTML);
+        //console.log(reg);
+    };
+    var wrap=document.querySelector('#wrap');
+    var value=find('span',wrap.innerHTML);
+    console.log(value);
+    console.log(wrap.innerHTML);
+
+    //标签验证应注意：正则表达式中，应该先是‘<’，然后标签名，再然后‘（—）？（.）*>’后面这一串代表标签中的内容；
+</script>
+<!--作业：注册（用户名：设置后不可更改；手机号：验证是否正确；验证码；密码：长度限制，字符为数字代谢奥谢下划线，无空格；登录，找回密码；-->
+</html>

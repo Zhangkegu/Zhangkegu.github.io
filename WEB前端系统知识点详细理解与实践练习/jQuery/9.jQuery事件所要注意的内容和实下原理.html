@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注意和原理</title>
+    <style>
+        #wrap{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+
+    </div>
+<div id="second"></div>
+</body>
+<script src="jquery-1.11.1.js" charset="utf-8"></script>
+<script>
+    //在jQuery中，所有的事件形参的函数内部的this都是标签本身，而不是jQuery对象；
+    //jquery本身就是对标签的操作，万变不离七宗
+    /*var wrap=$("#wrap");
+    //wrap调用click函数，click函数不是属于wrap的；
+    wrap.click(function () {
+        //事件中的this不是jQuery对象，而是标签本身；
+        console.log(this);
+
+    });
+    wrap.mouseover(function () {
+        console.log(this);
+    });*/
+
+    //2.标签对象套在$(标签名)，得到的结果就是一个jQuery对象；
+    /*var second=document.querySelector('#second');
+    console.log($(second));
+    var div=$("#wrap");
+    div.click(function () {
+        //this:标签
+        //$(this);
+
+        console.log($(this));
+    });*/
+
+    //3,事件对象
+    /*var div=$("#wrap");
+    div.click(function (e) {
+        //这里面不用写var e=e||window.event;这句话，直接调用e；
+        console.log(e);
+    });*/
+
+</script>
+</html>

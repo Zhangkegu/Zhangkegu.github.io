@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例2</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*function test(a,b,c) {
+        a=a*10;
+        b=b-10;
+        c=c+10;
+        console.log(a ,b ,c );
+    };
+    test(90,100,80);*/
+
+    //1.对象也能当形参
+    /*var a=10;
+    var obj={};
+    obj.name='nihao';
+    function f(m) {
+        console.log(m);
+    };
+    f(obj);
+    f(a+'<br/>');*/
+
+   /* var obj={
+        name:'张三',
+        sex:'女',
+        score:'90'};
+    function f(m) {
+        console.log(m);
+    };
+    f(obj);*/
+
+   /*function f(m) {
+       m.name;
+       m.sex;
+       m.score;
+       console.log(m);
+   }
+    f({
+       name:'李四',
+       sex:'男',
+       score:'50'
+   });*/
+
+   //框架类
+//案例：血量减少;
+    function f(obj) {
+        var timer=setInterval(function () {
+            obj.blood=obj.blood-obj.leave;
+            console.log(obj.blood+' ');
+            if(obj.blood==0){
+                clearInterval(timer);
+               console.log('你死了');
+            }
+        },1000);
+        obj.blood
+    };
+    f({
+        blood:100,
+        leave:10
+    });
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>切换效果</title>
+</head>
+<body>
+    <div id="wrap">你好</div>
+    <input type="button" id="btn" value="隐藏">
+</body>
+<script src="jquery-1.11.1.js" charset="utf-8"></script>
+<script>
+    $("input").click(function () {
+        //toggle():作用：在展示和隐藏之间的切换，避免if判断的代码部分；
+        //$("#wrap").toggle();
+     //给toggle添加属性，让效果展示时间有动画感；
+        //括号引号里面的形参：slow,normal,fast或者是具体的毫秒数，具体数值不能再引号中；
+        //$("#wrap").toggle("slow");
+        //还可以写具体数字，但是谁不能用双引号括住；
+       // $("#wrap").toggle(1000);
+        //如下例子中，第二个形参是函数，在动画执行完以后自定执行函数功能；
+        /*$("#wrap").toggle('slow',function () {
+            alert('动画结束了');
+        });*/
+    });
+</script>
+</html>

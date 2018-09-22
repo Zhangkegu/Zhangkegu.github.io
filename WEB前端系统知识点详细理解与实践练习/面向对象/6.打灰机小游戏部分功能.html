@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例</title>
+    <style>
+        #wrap{
+            width:500px;
+            height:500px;
+            border: 1px solid red;
+            position: relative;
+            text-align: center;
+            line-height: 50px;
+            color: #069FFF;
+            font-size: 12px;
+        }
+        #target{
+            position: absolute;
+            width: 100px;
+            height: 50px;
+            background: green;
+            left: 200px;
+            text-align: center;
+            line-height: 50px;
+            color: #069FFF;
+            font-size: 12px;
+
+
+        }
+        #start{
+            width: 40px;
+            height: 30px;
+            background: peru;
+            border-radius: 30px;
+            left: 20px;
+            text-align: center;
+            font-size: 10px;
+            color:black;
+            line-height: 30px;
+        }
+        .bullet{
+            width: 30px;
+            height: 30px;
+            background: red;
+            position: absolute;
+            left: 235px;
+            bottom: 0;
+            text-align: center;
+            line-height: 30px;
+            color: black;
+            font-size: 10px;
+
+
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="target">大灰机</div>
+        <div id="start">开始</div>
+    </div>
+</body>
+
+<script>
+    var wrap=document.querySelector('#wrap');
+    var target=document.querySelector('#target');
+    var start=document.querySelector('#start');
+    //给子弹添加血量属性
+    target.blood=100;
+    target.isdie=false;
+
+    //创建子弹函数
+    //每一个子弹添加一个计时器来进行移动；这就需要用面向对象的创造过程；
+    function Bullet(father) {
+        this.tag=document.createElement('div');
+        this.tag.className='bullet';
+        this.add=function () {
+            father.appendChild(this.tag);
+            this.tag.innerHTML='子弹';
+
+        };
+
+        this.move=function () {
+
+            var top=this.tag.offsetTop;
+            var bullet=this;
+            var timer=setInterval(function () {
+                top-=1;
+                bullet.tag.style.top=top+'px';
+                //碰撞检测:获得目标的top和height,然后和子弹的top进行比较；
+                var target_top=target.offsetTop;
+                var target_height=target.offsetHeight;
+
+                if (top<=(target_top+target_height)) {
+                    target.blood-=10;
+                    console.log(target.blood+' ');
+                    clearInterval(timer);
+                    bullet.tag.remove();
+                    target.innerHTML='剩余血量：'+target.blood;
+                   if(target.blood<=0&&target.isdie==false){
+                       target.isdie=true;
+                       alert('Game Over!');
+                       target.remove();
+
+                   }
+                }
+            },1);
+        };
+        this.add();
+    }
+
+    /*function createBullet(father) {
+        var bullet=document.createElement('div');
+        bullet.className='bullet';
+        father.appendChild(bullet);
+    }*/
+
+
+    start.onclick=function () {
+
+            var bullet=new Bullet(this);//点击wrap时子弹出现，
+            // 即this指向wrap,wrap作为实参传给函数createBullet()中的father;
+            bullet.move();
+            /*bullet.onmousedown=function (){
+                this.tag.remove();
+            };*/
+    }
+</script>
+</html>

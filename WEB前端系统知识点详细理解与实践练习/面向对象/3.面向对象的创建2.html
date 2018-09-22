@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建2</title>
+</head>
+<body>
+
+</body>
+<script>
+    //对象创建方式2：
+   /* var obj={};
+    obj.a='添加属性1';
+    obj.b=function () {
+        console.log('添加属性2：方法属性');
+    };
+
+    console.log(obj);
+    console.log(obj.a);
+    console.log(obj.b);*/
+
+   /*var obj={a:'属性1被添加',b:function () {//多个属性之间用逗号隔开；
+           alert('属性2被添加');
+       }};
+   console.log(obj);//属性的调用方式就用对象.属性名；
+    //对象中的函数属性调用时要写上对象名然后函数；
+    */
+
+   //案例:对象最简单的创建方式；
+    var obj={
+        fn:function (a) {
+            return a;
+        }
+    };
+    var b=obj.fn(100+' ');
+    console.log(b);
+</script>
+</html>

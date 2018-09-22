@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内容筛选器</title>
+</head>
+<body>
+    <div>first</div>
+    <div>second</div>
+    <div>my first</div>
+    <!--标签中没有子标签，也没有文本内容，就是空标签-->
+    <div class="empty"></div>
+     <div class="en">
+         <span></span>
+     </div>
+</body>
+<script src="jquery-1.11.1.js" charset="utf-8"></script>
+<script>
+    //内容选择器： :contains()  标签中包含所对应的内容；
+    /*var divs=$('div:contains(first)');
+    console.log(divs);*/
+
+    //内容选择器L: :empty
+    var divs=$('div:empty');
+    console.log(divs);
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原型案例</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 100px;
+            height:100px;
+            background: red;
+            position: absolute;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap"></div>
+</body>
+<script src="9.案例.js" charset="utf-8"></script>
+<script>
+
+   /* var a='name';
+    var obj={};
+    //给obj添加一个属性名为name的属性；
+    //obj.name="";//这种写法是错误的，正确写法:
+    obj[a]='张三';//也可以：obj['name']='张三';
+    console.log(obj);*/
+
+   move({
+       tag:document.querySelector('#wrap'),
+       direction:'bottom',
+       end:'100px',
+       duration:'10'
+   });
+</script>
+</html>

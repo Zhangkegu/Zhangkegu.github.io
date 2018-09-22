@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子元素选择器</title>
+</head>
+<body>
+    <div>你好</div>
+    <span></span>
+    <div>first</div>
+    <div id="wrap">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+
+</body>
+<script src="jquery-1.11.1.js" charset="utf-8"></script>
+<script>
+    //first-child:同级别标签的某类标签的第一个标签；
+    var div=$('div:first-child');
+    var divs=$('#wrap div:first-child');//wrap下的第一个div标签
+    console.log(div);
+    console.log(divs);
+</script>
+</html>

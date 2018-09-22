@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>样式设置</title>
+    <style>
+        *{
+            margin:0px;
+            padding: 0px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div id="second">
+        <div id="wrap">cen</div>
+    </div>
+
+
+</body>
+<script src="jquery-1.11.1.js" charset="utf-8"></script>
+<script>
+    var div=$("#wrap");
+    $("#second").css({
+        position:'relative',
+        width:400,
+        height:500,
+        border:'1px solid red',
+        margin:100,
+    });
+    div.css({
+        //通过jquery来写样式是通过给对象添加属性的方式，即属性名：‘属性值’；各个属性之间用逗号隔开；
+        border:'2px dotted black',
+        boxShadow:'2px 2px 3px gray',
+        width:'100px',
+        height:"150px",
+        textAlign:'center',
+        //top:'30px',
+        position:'relative',
+        left:"200px",
+    });
+    //获取样式
+   /* var width=div.css("width");
+    console.log(width);*/
+
+    //获得left,top的相对值
+    //注意：offset是相对于窗口而言的，不是相对于父级而言；
+    /*var left=div.offset().left;
+    var myTop=div.offset().top;//top这个属性的定义变量名不能叫top，否则对象就是window；
+    console.log(left);
+    console.log(myTop);*/
+
+    //设置left和top
+    /*div.offset({
+        left:400,
+        top:200,
+    });*/
+
+    //position（）:它是相对于父级标签的位置距离，left top；
+    //position只能获取相对父级标签中有relative的相对偏移量，不能进行属性值的设置；
+   /* var left=div.position().left;
+    console.log(left);*/
+
+
+
+   //width和height的获取方式
+
+    /*var width=div.width();
+    console.log(width);
+    div.width(50);//设置宽度值；
+    div.height(50);//设置高度值；*/
+
+
+
+
+
+</script>
+</html>

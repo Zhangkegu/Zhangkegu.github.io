@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>栅格系统</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.3.1.min.js" charset="utf-8"></script>
+    <script src="js/bootstrap.min.js" charset="utf-8"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style media="screen">
+        .wrap{
+            height: 50px;
+            background: grey;
+            border:1px solid red;
+        }
+        .border{
+            border: 1px solid red;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<!--
+     布局容器：
+1，container:根据浏览器响应式设置宽度
+2，container-fluid:占父级标签的100%宽度；
+<!--container-fluid:用于100%宽度，占据全部视口（viewport）的容器-->
+-->
+   <!-- <div class="container wrap">
+        你好
+    </div>
+
+    <div class="container-fluid wrap">
+        兰欧
+    </div>-->
+
+    <div class="container">
+        <div class="row">
+            <!--相当于把container分成了均等的多分，最多只能分为12份，
+            col-md-1中的1就表示它占container的一份，如果是2，就占两份
+            -->
+
+            <div class="col-md-1 border">1</div>
+            <div class="col-md-1 border">2</div>
+            <div class="col-md-1 border">3</div>
+            <div class="col-md-1 border">4</div>
+            <div class="col-md-1 border">5</div>
+            <div class="col-md-1 border">6</div>
+            <div class="col-md-1 border">7</div>
+            <div class="col-md-1 border">8</div>
+            <div class="col-md-1 border">9</div>
+            <div class="col-md-1 border">10</div>
+            <div class="col-md-1 border">11</div>
+            <div class="col-md-1 border">12</div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-2 border">1</div>
+            <div class="col-md-3 border">2</div>
+            <div class="col-md-7 border">3</div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 border">1</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5 border">1</div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 border">1</div>
+            <div class="col-xs-4 border">2</div>
+        </div>
+    </div>
+<hr/><!--美好的按钮-->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-4"><div class="btn btn-primary btn-block">按扭1</div></div>
+            <div class="col-xs-12 col-md-4"><div class="btn btn-info btn-block">按扭2</div></div>
+            <div class="col-xs-12 col-md-4"><div class="btn btn-success btn-block">按扭3</div></div>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
